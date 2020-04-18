@@ -103,9 +103,11 @@ func _on_DashCoolDown_timeout():
 	if canDash == true:
 		canDash = false
 		$ParticlesDash.stop()
+		print_debug("canDash = false")
 		$DashCoolDown.start(2)
 	else:
 		canDash = true
+		print_debug("canDash = true")
 	
 	
 func _on_ParticlesDash_timeout():

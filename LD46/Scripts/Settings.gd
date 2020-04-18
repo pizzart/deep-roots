@@ -1,7 +1,7 @@
 extends Container
 
-var sfx_volume = 0
-var mus_volume = 0
+var sfx_volume = -20
+var mus_volume = -20
 
 
 func _on_SFX_Volume_value_changed(value):
