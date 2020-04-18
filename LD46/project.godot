@@ -17,11 +17,14 @@ _global_script_class_icons={
 
 config/name="LD46"
 run/main_scene="res://Scenes/Instances/Player.tscn"
+boot_splash/image="res://GFX/Static/PibbAutoSanDee.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.0666667, 0.0666667, 0.137255, 1 )
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-SoundManager="*res://Scripts/SoundManager.gd"
+SoundManager="*res://Scripts/AudioManager.gd"
 
 [display]
 

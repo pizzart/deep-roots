@@ -3,7 +3,6 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Static/Player_idle.png" type="Texture" id=2]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -23,7 +22,6 @@ spread = 11.67
 gravity = Vector3( 0, 8.73, 0 )
 initial_velocity = 24.7
 initial_velocity_random = 0.3
-angular_velocity = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 damping = 25.11
