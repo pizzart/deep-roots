@@ -10,7 +10,7 @@ func _process(_delta):
 	rng.randomize()
 
 func play_sound(sound, volume, bus = "SFX"):
-	var soundPath = "res://Sounds/" + sound
+	var soundPath = "res://Audio/" + sound
 	var stream = load(soundPath)
 	var player = AudioStreamPlayer.new()
 	
