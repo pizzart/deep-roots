@@ -103,11 +103,9 @@ func _on_DashCoolDown_timeout():
 	if canDash == true:
 		canDash = false
 		$ParticlesDash.stop()
-		print_debug("canDash = false")
 		$DashCoolDown.start(2)
 	else:
 		canDash = true
-		print_debug("canDash = true")
 	
 	
 func _on_ParticlesDash_timeout():
@@ -119,6 +117,10 @@ func _on_ParticlesDash_timeout():
 		particles.rotation_degrees = 180.0;
 	else:
 		particles.rotation = 0;
+	
+	
+func die():
+	position.x = 0
 	
 	
 	
