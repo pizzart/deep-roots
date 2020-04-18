@@ -36,9 +36,8 @@ func fall(delta):
 		motion.y += GRAVITY * delta
 		if motion.y >= GRAVITY * 2:
 			motion.y = GRAVITY * 2
-		
-	
-		
+
+
 func run(delta):
 	if Input.is_action_pressed("left"):
 		motion.x -= SPEED
@@ -54,9 +53,8 @@ func run(delta):
 		motion.x = -SPEED_LIMIT
 	elif abs(motion.x) > SPEED_LIMIT and motion.x > 0:
 		motion.x = SPEED_LIMIT
-		
-		
-		
+
+
 func jump():
 	if !Input.is_action_pressed("jump"):
 		canJump = true
@@ -72,8 +70,8 @@ func jump():
 	if Input.is_action_pressed("down") and !is_on_floor():
 		motion.y += 50
 		motion.x *= 0.25
-		
-		
+
+
 func dash():
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
 		isDashing = true
@@ -86,22 +84,20 @@ func dash():
 			print_debug("stoppin dash")
 			$DashCoolDown.start(2)
 			
-			 
-			
 		motion.x = 0
 		motion.y = 0
 		if Input.is_action_pressed("left"):
 			motion.x = -270
 		elif Input.is_action_pressed("right"):
 			motion.x = 270
-		
-		 
+
+
 func animate():
 	emit_signal("animate", motion)
 	
 func end_game():
 	pass
-	
+
 
 func _on_DashCoolDown_timeout():
 	if canDash == true:
@@ -123,7 +119,6 @@ func _on_ParticlesDash_timeout():
 		particles.rotation_degrees = 180.0;
 	else:
 		particles.rotation = 0;
-	
 	
 	
 	
