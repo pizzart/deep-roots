@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.738197, 1 )
+colors = PoolColorArray( 0.569687, 0.936634, 0.959473, 1, 0.3538, 0.532279, 0.748535, 1, 0.249458, 0.336752, 0.760254, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 4, 1 )
+flag_disable_z = true
+spread = 35.33
+gravity = Vector3( 0, 8.73, 0 )
+initial_velocity = 24.7
+initial_velocity_random = 0.3
+angular_velocity = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 25.11
+damping_random = 0.34
+color_ramp = SubResource( 3 )
+hue_variation = -0.03
+hue_variation_random = 0.32
+
+[node name="DashParticles" type="Particles2D"]
+modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( -0.0299991, -2.14577e-006 )
+emitting = false
+amount = 3
+lifetime = 0.5
+one_shot = true
+draw_order = 1
+process_material = SubResource( 1 )
