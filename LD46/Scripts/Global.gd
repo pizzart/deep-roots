@@ -10,7 +10,7 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func switch_scene(path):
-	call_deferred("_deferred_switch_scene", path)
+	call_deferred("_deferred_switch_scene", "res://Scenes/" + path)
 
 func _deferred_switch_scene(path):
 	current_scene.free()
