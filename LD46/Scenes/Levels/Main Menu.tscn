@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://UI Themes/pibba.tres" type="Theme" id=1]
-[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://UI Themes/pibba.tres" type="Theme" id=2]
 [ext_resource path="res://Scripts/Settings.gd" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,7 +26,7 @@ __meta__ = {
 [node name="Name" type="Label" parent="Main"]
 margin_right = 207.0
 margin_bottom = 34.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "gamename"
 align = 1
 
@@ -34,21 +34,21 @@ align = 1
 margin_top = 38.0
 margin_right = 207.0
 margin_bottom = 72.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Play"
 
 [node name="Settings" type="Button" parent="Main"]
 margin_top = 76.0
 margin_right = 207.0
 margin_bottom = 110.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Main"]
 margin_top = 114.0
 margin_right = 207.0
 margin_bottom = 148.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Quit"
 
 [node name="Choose" type="VBoxContainer" parent="."]
@@ -66,7 +66,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Choose"]
 margin_right = 206.0
 margin_bottom = 34.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "first"
 align = 1
 
@@ -74,14 +74,14 @@ align = 1
 margin_top = 38.0
 margin_right = 206.0
 margin_bottom = 72.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Story"
 
 [node name="Label2" type="Label" parent="Choose"]
 margin_top = 76.0
 margin_right = 206.0
 margin_bottom = 110.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "second"
 align = 1
 
@@ -89,14 +89,14 @@ align = 1
 margin_top = 114.0
 margin_right = 206.0
 margin_bottom = 148.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Endless"
 
 [node name="BackChoose" type="Button" parent="Choose"]
 margin_top = 152.0
 margin_right = 206.0
 margin_bottom = 186.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Back"
 
 [node name="Settings" type="Container" parent="."]
@@ -117,18 +117,18 @@ __meta__ = {
 [node name="Back" type="Button" parent="Settings"]
 margin_right = 236.0
 margin_bottom = 34.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "Back"
 
 [node name="Volume" type="Panel" parent="Settings"]
 margin_top = 38.0
 margin_right = 236.0
 margin_bottom = 138.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 
 [node name="Volume Text" type="Label" parent="Settings/Volume"]
 anchor_right = 1.0
-margin_right = -1.52588e-05
+margin_right = -1.52588e-005
 margin_bottom = 34.0
 text = "Volume"
 align = 1
@@ -140,7 +140,7 @@ __meta__ = {
 margin_top = 68.0
 margin_right = 116.0
 margin_bottom = 88.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 min_value = -30.0
 max_value = 10.0
 value = -5.0
@@ -152,7 +152,7 @@ __meta__ = {
 margin_top = 34.0
 margin_right = 118.0
 margin_bottom = 68.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "SFX"
 align = 1
 __meta__ = {
@@ -164,7 +164,7 @@ margin_left = 118.0
 margin_top = 68.0
 margin_right = 234.0
 margin_bottom = 88.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 min_value = -30.0
 max_value = 10.0
 value = -5.0
@@ -177,7 +177,7 @@ margin_left = 118.0
 margin_top = 34.0
 margin_right = 234.0
 margin_bottom = 68.0
-theme = ExtResource( 1 )
+theme = ExtResource( 2 )
 text = "MUS"
 align = 1
 __meta__ = {

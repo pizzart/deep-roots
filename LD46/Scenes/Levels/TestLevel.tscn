@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/TestLevel.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/Ground.tres" type="TileSet" id=3]
 [ext_resource path="res://GFX/Static/Tilemaps/Spike.png" type="Texture" id=4]
-[ext_resource path="res://GFX/Static/Tilemaps/Grass3.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Spike.gd" type="Script" id=5]
+[ext_resource path="res://GFX/Static/Tilemaps/Grass3.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 7.96749, 0.0268021 )
@@ -18,11 +19,6 @@ points = PoolVector2Array( 16, 16, 0, 16, 7.96749, 0.0268021 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 1 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -34,7 +30,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 7.96749, 0.0268021 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "Spike appear",
 "speed": 5.0
@@ -59,24 +55,15 @@ tile_data = PoolIntArray( -262136, 1610612738, 0, -131068, 2, 0, -65533, -107374
 
 [node name="Spikes1" type="Node2D" parent="."]
 
-[node name="Spike" type="AnimatedSprite" parent="Spikes1"]
+[node name="Spike" type="Area2D" parent="Spikes1"]
+script = ExtResource( 5 )
+
+[node name="Spike" type="AnimatedSprite" parent="Spikes1/Spike"]
 position = Vector2( -56, -24 )
 frames = SubResource( 3 )
 animation = "Spike appear"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spikes1/Spike"]
-
-[node name="Spike2" type="AnimatedSprite" parent="Spikes1"]
-position = Vector2( -72, -24 )
-frames = SubResource( 3 )
-animation = "Spike appear"
-
-[node name="Spike3" type="AnimatedSprite" parent="Spikes1"]
-position = Vector2( -88, -24 )
-frames = SubResource( 3 )
-animation = "Spike appear"
-
-[node name="Spike4" type="AnimatedSprite" parent="Spikes1"]
-position = Vector2( -104, -24 )
-frames = SubResource( 3 )
-animation = "Spike appear"
+position = Vector2( -56, -32 )
+polygon = PoolVector2Array( 0, 0, 0, 0, -8, 16, 8, 16 )
+[connection signal="body_entered" from="Spikes1/Spike" to="Spikes1/Spike" method="_on_Spike_body_entered"]
