@@ -128,7 +128,7 @@ theme = ExtResource( 2 )
 
 [node name="Volume Text" type="Label" parent="Settings/Volume"]
 anchor_right = 1.0
-margin_right = -1.52588e-005
+margin_right = -1.52588e-05
 margin_bottom = 34.0
 text = "Volume"
 align = 1
