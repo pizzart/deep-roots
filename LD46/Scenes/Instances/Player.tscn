@@ -14,7 +14,24 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3.36656, 7.80907 )
 
+<<<<<<< HEAD
 [node name="Player" type="KinematicBody2D"]
+=======
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 4, 1 )
+flag_disable_z = true
+spread = 11.67
+gravity = Vector3( 0, 8.73, 0 )
+initial_velocity = 24.7
+initial_velocity_random = 0.3
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 25.11
+damping_random = 0.34
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+>>>>>>> 7e2de18797b894c993b5d2515d4c78d1b4b0e1fc
 collision_mask = 2
 script = ExtResource( 1 )
 
