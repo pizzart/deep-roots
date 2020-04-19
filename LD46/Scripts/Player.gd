@@ -85,12 +85,10 @@ func dash():
 			
 		if (Input.is_action_pressed("left") and Input.is_action_pressed("right")):
 			_on_DashCoolDown_timeout()
-			print_debug("stoppin dash")
 			$DashCoolDown.start(1)
 			
 		if (is_on_wall()):
 			_on_DashCoolDown_timeout()
-			print_debug("stoppin dash")
 			$DashCoolDown.start(1)
 		
 		motion.x = 0
