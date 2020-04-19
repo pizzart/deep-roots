@@ -75,6 +75,7 @@ func jump():
 func dash():
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
 		isDashing = true
+		$CollisionShape2D.scale.y = 0.7
 		if $DashCoolDown.is_stopped():
 			$DashCoolDown.start(0.3)
 			$ParticlesDash.start()
@@ -103,7 +104,7 @@ func _on_DashCoolDown_timeout():
 	if canDash == true:
 		canDash = false
 		$ParticlesDash.stop()
-		$DashCoolDown.start(2)
+		$DashCoolDown.start(1)
 	else:
 		canDash = true
 	
@@ -113,6 +114,7 @@ func _on_ParticlesDash_timeout():
 	get_parent().add_child(particles);
 	particles.position = position;
 	particles.emitting = true;
+	$CollisionShape2D.scale.y = 1
 	if Input.is_action_pressed("left"):
 		particles.rotation_degrees = 180.0;
 	else:
@@ -121,6 +123,7 @@ func _on_ParticlesDash_timeout():
 	
 func die():
 	position.x = 0
+	position.y = -16
 	
 	
 	
