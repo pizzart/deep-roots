@@ -14,11 +14,23 @@ func play_sound(sound, volume, bus = "SFX"):
 	var stream = load(soundPath)
 	var player = AudioStreamPlayer.new()
 	
-	root.add_child(player)
-	
 	player.name = "Sound-" + str(rng.randi())
+	root.add_child(player)
 	player.set_owner(root)
 	player.stream = stream
 	player.bus = bus
 	player.set_volume_db(volume)
 	player.play()
+	
+	var length = stream.get_length()
+	var timer = Timer.new()
+	
+	timer.set_wait_time(length)
+	timer.set_one_shot(true)
+	timer.name = "Timer-" + player.name
+	root.add_child(timer)
+	timer.set_owner(root)
+	yield(timer, "timeout")
+	
+	timer.queue_free()
+	player.queue_free()
