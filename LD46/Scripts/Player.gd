@@ -21,7 +21,6 @@ func _physics_process(delta):
 	dash()
 	move_and_slide(motion, UP)
 	animate()
-	print_debug(motion.x)
 	
 	
 signal animate

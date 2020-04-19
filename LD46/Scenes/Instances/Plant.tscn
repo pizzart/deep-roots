@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Plant.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0000.png" type="Texture" id=2]
@@ -17,8 +17,6 @@
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0013.png" type="Texture" id=15]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0014.png" type="Texture" id=16]
 
-[sub_resource type="ImageTexture" id=1]
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
@@ -31,14 +29,7 @@ animations = [ {
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2( 0.740789, 0.375001 )
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+frame = 8
 playing = true
