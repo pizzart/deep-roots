@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Plant.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0000.png" type="Texture" id=2]
@@ -16,25 +16,8 @@
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0012.png" type="Texture" id=14]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0013.png" type="Texture" id=15]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0014.png" type="Texture" id=16]
-[ext_resource path="res://GFX/Animations/Plant/Plant.png" type="Texture" id=17]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 17 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 17 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
-} ]
-
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
@@ -46,13 +29,7 @@ animations = [ {
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 
-[node name="Plant" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
-frame = 1
-playing = true
-
-[node name="Bar" type="AnimatedSprite" parent="Plant"]
-position = Vector2( 0, -12.3347 )
-frames = SubResource( 4 )
-frame = 1
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+frame = 8
 playing = true
