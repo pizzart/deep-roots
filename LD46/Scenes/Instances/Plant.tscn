@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Plant.gd" type="Script" id=1]
+=======
+[gd_scene load_steps=22 format=2]
+
+>>>>>>> b481671dc00b83e48bf9ba56aaaac2e99d21e030
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0000.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0001.png" type="Texture" id=3]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0002.png" type="Texture" id=4]
@@ -16,6 +21,7 @@
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0012.png" type="Texture" id=14]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0013.png" type="Texture" id=15]
 [ext_resource path="res://GFX/Animations/Plant_lifebar/Plant_lifebar0014.png" type="Texture" id=16]
+<<<<<<< HEAD
 [ext_resource path="res://GFX/Static/exclamation point.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -42,10 +48,43 @@ frames = SubResource( 2 )
 frame = 1
 playing = true
 script = ExtResource( 1 )
+=======
+[ext_resource path="res://GFX/Animations/Plant/Plant.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 17 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5.08179, 8.02128 )
+
+[node name="Plant" type="RigidBody2D"]
+>>>>>>> b481671dc00b83e48bf9ba56aaaac2e99d21e030
 
 [node name="Bar" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -11.5941 )
 frames = SubResource( 1 )
+<<<<<<< HEAD
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -57,3 +96,15 @@ visible = false
 position = Vector2( 0, -23 )
 texture = ExtResource( 17 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+=======
+frame = 4
+playing = true
+
+[node name="Plant" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+>>>>>>> b481671dc00b83e48bf9ba56aaaac2e99d21e030
