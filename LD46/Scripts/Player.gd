@@ -25,6 +25,7 @@ func _physics_process(delta):
 	dash()
 	move_and_slide(motion, UP)
 	animate()
+	die()
 	
 	
 signal animate
@@ -129,8 +130,11 @@ func _on_ParticlesDash_timeout():
 	
 	
 func die():
-	position.x = 0
-	position.y = -16
+	if get_slide_count() > 0:
+		for i in range(get_slide_count()):
+			if(get_slide_collision(i).collider.get_name().find("Death") != -1):
+				position.x = 0
+				position.y = -16
 	
 	
 	
