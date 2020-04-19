@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://AnimatedTextures/Spike1.tres" type="Texture" id=1]
+[ext_resource path="res://AnimatedTextures/Spike1.tres" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 16, 1.91911, 13.1818, 0, 5.42953, 2.50053, 4.07288, 6.76427, 3.29765, 10.059, 0, 12.7723, 9.11186, 16, 9.69327, 16, 16, 0, 16 )
 
 [resource]
 0/name = "Spike1"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 16, 16 )
