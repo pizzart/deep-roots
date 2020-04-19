@@ -71,7 +71,7 @@ func jump():
 		motion.y -= 19 * abs(motion.y) * 0.005
 		
 	if Input.is_action_pressed("down") and !is_on_floor():
-		motion.y += 50
+		motion.y += 20
 		motion.x *= 0.25
 
 
