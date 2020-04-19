@@ -6,10 +6,7 @@ func _on_Play_pressed():
 
 func _on_Settings_pressed():
 	ButtonPress.press($Settings, $Main)
-
-
-func _on_Back_pressed():
-	ButtonPress.press($Main, $Settings)
+	$Settings.back_to = $Main
 
 
 func _on_BackChoose_pressed():
@@ -22,7 +19,7 @@ func _on_Story_pressed():
 
 func _on_Endless_pressed():
 	AudioManager.play_sound("select.wav", Settings.sfx_volume)
-	Global.switch_scene("Levels/PibbaTest.tscn")
+	Global.switch_scene("Levels/Overworld.tscn")
 
 
 func _on_Quit_pressed():
