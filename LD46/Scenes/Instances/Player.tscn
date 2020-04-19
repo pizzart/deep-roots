@@ -70,7 +70,12 @@ script = ExtResource( 1 )
 
 [node name="PlayerAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+<<<<<<< HEAD
 animation = "New Anim"
+=======
+animation = "run"
+frame = 2
+>>>>>>> 244ee9cb42123f7c8f8f6f4ee674d6bdca5343d1
 playing = true
 script = ExtResource( 42 )
 
@@ -88,8 +93,6 @@ drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="DashCoolDown" type="Timer" parent="."]
 process_mode = 0
