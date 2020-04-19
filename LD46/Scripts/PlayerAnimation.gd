@@ -13,7 +13,6 @@ func _on_Player_animate(motion, is_on_floor):
 			flip_h = false
 	elif motion.y > 1 and !is_on_floor:
 		play("fall")
-		print_debug(motion.y)
 	elif Input.is_action_pressed("right") and !Input.is_action_pressed("left"):
 		play("run")
 		flip_h = true
