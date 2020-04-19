@@ -143,8 +143,8 @@ margin_top = 68.0
 margin_right = 116.0
 margin_bottom = 88.0
 theme = ExtResource( 2 )
-min_value = -30.0
-max_value = 10.0
+min_value = -50.0
+max_value = 0.0
 value = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -167,8 +167,8 @@ margin_top = 68.0
 margin_right = 234.0
 margin_bottom = 88.0
 theme = ExtResource( 2 )
-min_value = -30.0
-max_value = 10.0
+min_value = -50.0
+max_value = 0.0
 value = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
