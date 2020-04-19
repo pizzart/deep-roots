@@ -39,6 +39,7 @@ extents = Vector2( 15, 9 )
 
 [node name="Plant" type="AnimatedSprite"]
 frames = SubResource( 2 )
+frame = 1
 playing = true
 script = ExtResource( 1 )
 

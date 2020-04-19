@@ -14,8 +14,7 @@ var canDash = true
 var isDashing = false
 
 var health = 2;
-var minerals = 300;
-
+var minerals = 0;
 
 
 func _physics_process(delta):
