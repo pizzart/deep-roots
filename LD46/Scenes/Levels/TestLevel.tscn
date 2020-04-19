@@ -55,4 +55,4 @@ rotation = -3.14159
 position = Vector2( -79, -691 )
 
 [node name="Plant" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -64 )
+position = Vector2( 0, -25 )
