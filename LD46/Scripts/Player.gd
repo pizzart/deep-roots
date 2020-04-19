@@ -14,7 +14,8 @@ var canDash = true
 var isDashing = false
 
 var health = 2;
-var minerals = 0;
+var minerals = 300;
+
 
 
 func _physics_process(delta):
@@ -132,7 +133,7 @@ func _on_ParticlesDash_timeout():
 func die():
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
-			if(get_slide_collision(i).collider.get_name().find("Death") != -1):
+			if(get_slide_collision(i).collider.is_in_group("Death")):
 				position.x = 0
 				position.y = -16
 	

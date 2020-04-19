@@ -27,4 +27,3 @@ position = Vector2( -79, -691 )
 
 [node name="Plant" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -25 )
-frame = 1
