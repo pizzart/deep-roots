@@ -187,7 +187,7 @@ __meta__ = {
 }
 [connection signal="pressed" from="Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/Settings" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="Main/Quit" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Main/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="Choose/Story" to="." method="_on_Story_pressed"]
 [connection signal="pressed" from="Choose/Endless" to="." method="_on_Endless_pressed"]
 [connection signal="pressed" from="Choose/BackChoose" to="." method="_on_BackChoose_pressed"]

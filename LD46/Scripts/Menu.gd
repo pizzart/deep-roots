@@ -23,3 +23,7 @@ func _on_Story_pressed():
 func _on_Endless_pressed():
 	AudioManager.play_sound("select.wav", Settings.sfx_volume)
 	Global.switch_scene("Levels/PibbaTest.tscn")
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
