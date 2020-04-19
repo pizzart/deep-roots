@@ -31,7 +31,7 @@ signal animate
 
 func fall(delta):
 	if position.y > WORLD_LIMIT:
-		end_game()
+		die()
 	if is_on_floor():
 		motion.y = 0
 	elif is_on_ceiling():
@@ -103,8 +103,6 @@ func dash():
 func animate():
 	emit_signal("animate", motion)
 
-func end_game():
-	pass
 
 
 func _on_DashCoolDown_timeout():
