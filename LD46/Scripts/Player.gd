@@ -6,8 +6,8 @@ export var GRAVITY = 1000
 export var JUMP_SPEED = 160
 
 const WORLD_LIMIT = 3000
-const UP = Vector2(0,-1)
-var motion = Vector2(0,0)
+const UP = Vector2(0, -1)
+var motion = Vector2(0, 0)
 
 var canJump = true
 var canDash = true
@@ -21,7 +21,6 @@ func _physics_process(delta):
 	dash()
 	move_and_slide(motion, UP)
 	animate()
-	print_debug(motion.x)
 	
 	
 signal animate
@@ -62,8 +61,6 @@ func jump():
 	if Input.is_action_pressed("jump") and is_on_floor() and canJump:
 		motion.y = -JUMP_SPEED
 		canJump = false
-		#$AudioStreamPlayer2D.stream = load("res://SFX/jump1.ogg")
-		$AudioStreamPlayer2D.play()
 		
 	if Input.is_action_pressed("jump") and !is_on_floor() and !canJump and motion.y < 0:
 		motion.y -= 19 * abs(motion.y) * 0.005
