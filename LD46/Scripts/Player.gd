@@ -18,9 +18,10 @@ func _physics_process(delta):
 	fall(delta)
 	run(delta)
 	jump()
-	animate()
 	dash()
 	move_and_slide(motion, UP)
+	animate()
+	print_debug(motion.x)
 	
 	
 signal animate
@@ -83,8 +84,13 @@ func dash():
 		if (Input.is_action_pressed("left") and Input.is_action_pressed("right")):
 			_on_DashCoolDown_timeout()
 			print_debug("stoppin dash")
-			$DashCoolDown.start(2)
+			$DashCoolDown.start(1)
 			
+		if (is_on_wall()):
+			_on_DashCoolDown_timeout()
+			print_debug("stoppin dash")
+			$DashCoolDown.start(1)
+		
 		motion.x = 0
 		motion.y = 0
 		if Input.is_action_pressed("left"):
@@ -95,7 +101,7 @@ func dash():
 
 func animate():
 	emit_signal("animate", motion)
-	
+
 func end_game():
 	pass
 
