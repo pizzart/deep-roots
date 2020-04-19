@@ -126,14 +126,12 @@ func _on_ParticlesDash_timeout():
 		particles.rotation_degrees = 180.0;
 	else:
 		particles.rotation = 0;
-	
-	
+
+
+
 func die():
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
 			if(get_slide_collision(i).collider.is_in_group("Death")):
-				position.x = 0
-				position.y = -16
-	
-	
-	
+				position.x = 100
+				position.y = -30

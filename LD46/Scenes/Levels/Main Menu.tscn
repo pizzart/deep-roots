@@ -2,9 +2,10 @@
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://UI Themes/pibba.tres" type="Theme" id=2]
-[ext_resource path="res://Scripts/Settings.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Instances/Settings.tscn" type="PackedScene" id=3]
 
 [node name="Control" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -101,96 +102,10 @@ margin_bottom = 186.0
 theme = ExtResource( 2 )
 text = "Back"
 
-[node name="Settings" type="Container" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -118.0
-margin_top = -69.0
-margin_right = 118.0
-margin_bottom = 69.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Back" type="Button" parent="Settings"]
-margin_right = 236.0
-margin_bottom = 34.0
-theme = ExtResource( 2 )
-text = "Back"
-
-[node name="Volume" type="Panel" parent="Settings"]
-margin_top = 38.0
-margin_right = 236.0
-margin_bottom = 138.0
-theme = ExtResource( 2 )
-
-[node name="Volume Text" type="Label" parent="Settings/Volume"]
-anchor_right = 1.0
-margin_right = -1.52588e-05
-margin_bottom = 34.0
-text = "Volume"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SFX Volume" type="HSlider" parent="Settings/Volume"]
-margin_top = 68.0
-margin_right = 116.0
-margin_bottom = 88.0
-theme = ExtResource( 2 )
-min_value = -50.0
-max_value = 0.0
-value = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SFX Volume Text" type="Label" parent="Settings/Volume"]
-margin_top = 34.0
-margin_right = 118.0
-margin_bottom = 68.0
-theme = ExtResource( 2 )
-text = "SFX"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Music Volume" type="HSlider" parent="Settings/Volume"]
-margin_left = 118.0
-margin_top = 68.0
-margin_right = 234.0
-margin_bottom = 88.0
-theme = ExtResource( 2 )
-min_value = -50.0
-max_value = 0.0
-value = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Music Volume Text" type="Label" parent="Settings/Volume"]
-margin_left = 118.0
-margin_top = 34.0
-margin_right = 234.0
-margin_bottom = 68.0
-theme = ExtResource( 2 )
-text = "MUS"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Settings" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Main/Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="Choose/Story" to="." method="_on_Story_pressed"]
 [connection signal="pressed" from="Choose/Endless" to="." method="_on_Endless_pressed"]
 [connection signal="pressed" from="Choose/BackChoose" to="." method="_on_BackChoose_pressed"]
-[connection signal="pressed" from="Settings/Back" to="." method="_on_Back_pressed"]
-[connection signal="value_changed" from="Settings/Volume/SFX Volume" to="Settings" method="_on_SFX_Volume_value_changed"]
-[connection signal="value_changed" from="Settings/Volume/Music Volume" to="Settings" method="_on_Music_Volume_value_changed"]
