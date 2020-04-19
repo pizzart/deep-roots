@@ -13,6 +13,10 @@ var canJump = true
 var canDash = true
 var isDashing = false
 
+var health = 2;
+var minerals = 10;
+
+
 
 func _physics_process(delta):
 	fall(delta)
