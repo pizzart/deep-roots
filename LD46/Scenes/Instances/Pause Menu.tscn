@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI Themes/pibba.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
+[ext_resource path="res://GFX/Static/PressStart2P-vaV7.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Instances/Settings.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Pause Menu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dim" type="Panel" parent="Pause Menu"]
+modulate = Color( 1, 1, 1, 0.466667 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="VBoxContainer" parent="Pause Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_right = -8.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back To Game" type="Button" parent="Pause Menu/Main"]
+margin_top = 34.0
+margin_right = 303.0
+margin_bottom = 68.0
+text = "Back to game"
+
+[node name="Settings" type="Button" parent="Pause Menu/Main"]
+margin_top = 73.0
+margin_right = 303.0
+margin_bottom = 107.0
+text = "Settings"
+
+[node name="Exit to Menu" type="Button" parent="Pause Menu/Main"]
+margin_top = 112.0
+margin_right = 303.0
+margin_bottom = 146.0
+text = "Exit to menu"
+
+[node name="Settings" parent="Pause Menu" instance=ExtResource( 4 )]
+
+[node name="Confirm" type="Container" parent="Pause Menu"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Pause Menu/Confirm"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -97.0
+custom_fonts/font = SubResource( 1 )
+text = "Are you sure you want to quit? All story progress will be lost."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseButtons" type="HBoxContainer" parent="Pause Menu/Confirm"]
+margin_left = 83.0
+margin_top = 112.0
+margin_right = 238.0
+margin_bottom = 152.0
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="Pause Menu/Confirm/ChooseButtons"]
+margin_right = 87.0
+margin_bottom = 40.0
+text = "Yes"
+
+[node name="No" type="Button" parent="Pause Menu/Confirm/ChooseButtons"]
+margin_left = 92.0
+margin_right = 155.0
+margin_bottom = 40.0
+text = "No"
+[connection signal="pressed" from="Pause Menu/Main/Back To Game" to="Pause Menu" method="_on_Back_To_Game_pressed"]
+[connection signal="pressed" from="Pause Menu/Main/Settings" to="Pause Menu" method="_on_Settings_pressed"]
+[connection signal="pressed" from="Pause Menu/Main/Exit to Menu" to="Pause Menu" method="_on_Exit_to_Menu_pressed"]
+[connection signal="pressed" from="Pause Menu/Confirm/ChooseButtons/Yes" to="Pause Menu" method="_on_Yes_pressed"]
+[connection signal="pressed" from="Pause Menu/Confirm/ChooseButtons/No" to="Pause Menu" method="_on_No_pressed"]
