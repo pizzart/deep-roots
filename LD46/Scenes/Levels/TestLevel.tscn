@@ -1,15 +1,25 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tilesets/Death.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/Underground.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Instances/Plant.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Instances/Mineral K.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=7]
 
 [node name="TestLevel" type="Node2D"]
 
+[node name="Mineral" parent="." instance=ExtResource( 6 )]
+position = Vector2( 70, -15 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -45 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="GUI" parent="GUI" instance=ExtResource( 4 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -37,13 +47,3 @@ position = Vector2( -79, -691 )
 
 [node name="Plant" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -25 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2( 0.8, 0.8 )
-transform = Transform2D( 0.8, 0, 0, 0.8, 0, 0 )
-
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_left = -161.25
-margin_top = -150.0
-margin_right = -161.25
-margin_bottom = -150.0

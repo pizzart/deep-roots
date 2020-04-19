@@ -14,8 +14,9 @@ var canDash = true
 var isDashing = false
 
 var health = 2;
-var minerals = 300;
+var minerals = 0;
 
+signal animate
 
 
 func _physics_process(delta):
@@ -26,9 +27,8 @@ func _physics_process(delta):
 	move_and_slide(motion, UP)
 	animate()
 	die()
-	
-	
-signal animate
+	get_node("../GUI").minerals = minerals;
+
 
 func fall(delta):
 	if position.y > WORLD_LIMIT:
@@ -105,7 +105,6 @@ func animate():
 	emit_signal("animate", motion, is_on_floor())
 
 
-
 func _on_DashCoolDown_timeout():
 	if canDash == true:
 		canDash = false
@@ -128,10 +127,9 @@ func _on_ParticlesDash_timeout():
 		particles.rotation = 0;
 
 
-
 func die():
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
 			if(get_slide_collision(i).collider.is_in_group("Death")):
-				position.x = 100
-				position.y = -30
+				position.x = 0
+				position.y = -16
