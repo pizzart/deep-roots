@@ -113,6 +113,7 @@ func _on_DashCoolDown_timeout():
 		$ParticlesDash.stop()
 		$DashCoolDown.start(1)
 	else:
+		$CollisionShape2D.scale.y = 1
 		canDash = true
 	
 	

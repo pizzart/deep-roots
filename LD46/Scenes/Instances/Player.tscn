@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Animations/Player/Idle/P_IDLE_0000.png" type="Texture" id=2]
@@ -42,7 +42,6 @@
 [ext_resource path="res://GFX/Animations/Player/Run/P_RUN_0012.png" type="Texture" id=40]
 [ext_resource path="res://GFX/Animations/Player/Run/P_RUN_0013.png" type="Texture" id=41]
 [ext_resource path="res://Scripts/PlayerAnimation.gd" type="Script" id=42]
-[ext_resource path="res://Scripts/Death.gd" type="Script" id=43]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -51,17 +50,19 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": true,
 "name": "run",
-"speed": 20.0
+"speed": 21.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.50973, 6.87636 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.0871, 7.28104 )
+extents = Vector2( 4.01811, 6.54735 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
@@ -69,13 +70,13 @@ script = ExtResource( 1 )
 
 [node name="PlayerAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "run"
-frame = 11
+animation = "idle"
+frame = 18
 playing = true
 script = ExtResource( 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.436058, 1.95385 )
+position = Vector2( -0.479824, 1.42865 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -96,13 +97,6 @@ one_shot = true
 
 [node name="ParticlesDash" type="Timer" parent="."]
 wait_time = 0.01
-
-[node name="DeathArea" type="Area2D" parent="."]
-script = ExtResource( 43 )
-
-[node name="Shape" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2( -0.436058, 1.95385 )
-shape = SubResource( 3 )
 [connection signal="animate" from="." to="PlayerAnimation" method="_on_Player_animate"]
 [connection signal="timeout" from="DashCoolDown" to="." method="_on_DashCoolDown_timeout"]
 [connection signal="timeout" from="ParticlesDash" to="." method="_on_ParticlesDash_timeout"]

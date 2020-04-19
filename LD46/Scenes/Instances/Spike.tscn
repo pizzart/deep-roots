@@ -34,6 +34,7 @@ polygon = PoolVector2Array( -7, 7, -7, 16, 7, 16, 7, 11, 2, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 9
 playing = true
 __meta__ = {
 "_edit_group_": true

@@ -27,5 +27,5 @@ func _on_Area2D_body_entered(body):
 
 func animate():
 	$Bar.frame = 14 - life/(maxlife/14)
-	if life < maxlife/10:
+	if life < maxlife/3:
 		$Exclamation.visible = true;
