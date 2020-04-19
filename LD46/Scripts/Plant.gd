@@ -15,7 +15,7 @@ func _physics_process(delta):
 		life = 0;
 		
 	animate();
-	print_debug(life)
+#	print_debug(life)
 
 
 func _on_Area2D_body_entered(body):

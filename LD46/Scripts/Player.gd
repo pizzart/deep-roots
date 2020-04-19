@@ -32,7 +32,7 @@ signal animate
 
 func fall(delta):
 	if position.y > WORLD_LIMIT:
-		end_game()
+		die()
 	if is_on_floor():
 		motion.y = 0
 	elif is_on_ceiling():
@@ -78,7 +78,7 @@ func jump():
 func dash():
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
 		isDashing = true
-		$CollisionShape2D.scale.y = 0.7
+		$CollisionShape2D.scale.y = 0.8
 		if $DashCoolDown.is_stopped():
 			$DashCoolDown.start(0.3)
 			$ParticlesDash.start()
@@ -102,10 +102,8 @@ func dash():
 
 
 func animate():
-	emit_signal("animate", motion)
+	emit_signal("animate", motion, is_on_floor())
 
-func end_game():
-	pass
 
 
 func _on_DashCoolDown_timeout():
