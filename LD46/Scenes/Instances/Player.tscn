@@ -50,19 +50,14 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "New Anim",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": true,
 "name": "run",
-"speed": 21.0
+"speed": 20.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4.50973, 6.54735 )
+extents = Vector2( 4.50973, 6.87636 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 2
@@ -70,17 +65,13 @@ script = ExtResource( 1 )
 
 [node name="PlayerAnimation" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-<<<<<<< HEAD
-animation = "New Anim"
-=======
 animation = "run"
-frame = 2
->>>>>>> 244ee9cb42123f7c8f8f6f4ee674d6bdca5343d1
+frame = 10
 playing = true
 script = ExtResource( 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.494129, 1.57639 )
+position = Vector2( -0.436058, 1.95385 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
