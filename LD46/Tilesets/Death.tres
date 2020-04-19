@@ -3,7 +3,7 @@
 [ext_resource path="res://AnimatedTextures/Spike1.tres" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 1.53149, 13.1599, 0.756271, 8.89615, 0, 4.4386, 2.69434, 6.37666, 3.46957, 3.46956, 6.95808, 3.66336, 8.50854, 0, 10.2528, 0.756271, 13.1599, 8.70235, 16, 8.50853, 15.6794, 16, 0, 16 )
+points = PoolVector2Array( 0, 16, 1.91911, 13.1818, 0, 5.42953, 2.50053, 4.07288, 6.76427, 3.29765, 10.059, 0, 12.7723, 9.11186, 16, 9.69327, 16, 16, 0, 16 )
 
 [resource]
 0/name = "Spike1"

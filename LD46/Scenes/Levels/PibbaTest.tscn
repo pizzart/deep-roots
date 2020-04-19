@@ -1,36 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tilesets/Underground.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/Ground.tres" type="TileSet" id=3]
 [ext_resource path="res://Scenes/Instances/Light2D.tscn" type="PackedScene" id=4]
-[ext_resource path="res://AnimatedTextures/Spike1.tres" type="Texture" id=5]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 1.53149, 13.1599, 0.756271, 8.89615, 0, 4.4386, 2.69434, 6.37666, 3.46957, 3.46956, 6.95808, 3.66336, 8.50854, 0, 10.2528, 0.756271, 13.1599, 8.70235, 16, 8.50853, 15.6794, 16, 0, 16 )
-
-[sub_resource type="TileSet" id=2]
-0/name = "Spike1"
-0/texture = ExtResource( 5 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 16, 16 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
+[ext_resource path="res://Tilesets/Death.tres" type="TileSet" id=5]
 
 [node name="Node2D" type="Node2D"]
 
@@ -54,7 +28,7 @@ tile_data = PoolIntArray( -131078, 0, 65537, -131077, 0, 65537, -131076, 0, 6553
 [node name="Death" type="TileMap" parent="." groups=[
 "Death",
 ]]
-tile_set = SubResource( 2 )
+tile_set = ExtResource( 5 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 196621, 536870912, 0, 262158, -536870912, 0, 327683, 0, 0, 327684, 0, 0, 393221, 0, 0, 458773, 536870912, 0, 524307, 536870912, 0 )
