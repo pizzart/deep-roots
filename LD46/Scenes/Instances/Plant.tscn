@@ -49,6 +49,7 @@ extents = Vector2( 5.08179, 8.02128 )
 [node name="Bar" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -11.5941 )
 frames = SubResource( 1 )
+frame = 8
 playing = true
 
 [node name="Plant" type="AnimatedSprite" parent="."]
