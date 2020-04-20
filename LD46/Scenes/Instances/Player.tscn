@@ -63,11 +63,6 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
-"loop": false,
-"name": "jump",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 47 ), ExtResource( 46 ), ExtResource( 51 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 50 ), ExtResource( 53 ) ],
 "loop": false,
 "name": "fall",
@@ -77,6 +72,11 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 21.0
+}, {
+"frames": [ ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "jump",
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

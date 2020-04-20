@@ -8,6 +8,7 @@ var no_health = load("res://GFX/Static/health_no.png")
 var yes_health = load("res://GFX/Static/health_yes.png")
 
 var win_requirement = 20000;
+var won = false
 
 signal win
 
@@ -28,8 +29,9 @@ func _physics_process(delta):
 		$GUI/Health/Health3.visible = true
 		$GUI/Health/Health2.texture = yes_health
 		
-	if score >= win_requirement:
+	if score >= win_requirement and !won:
 		win()
+		won = true
 		
 func win():
 	emit_signal("win")

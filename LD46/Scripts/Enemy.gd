@@ -9,8 +9,8 @@ func _physics_process(delta):
 			position.x = 3
 		elif !is_on_wall():
 			motion.y = 0
-			if !is_on_floor():
-				position.y+=3
+#			if !is_on_floor():
+#				position.y+=3
 			motion.x = -15;
 		if is_on_wall():
 			print_debug('floor')
@@ -18,12 +18,13 @@ func _physics_process(delta):
 		move_and_slide(motion, UP)
 		
 	if position.x < 0:
+		$Enemy.flip_h = true
 		if abs(position.x) < 5:
 			position.x = -3
 		elif !is_on_wall():
 			motion.y = 0
-			if !is_on_floor():
-				motion.y+=3
+#			if !is_on_floor():
+#				motion.y+=3
 			motion.x = 15;
 		if is_on_wall():
 			motion.y = -7;

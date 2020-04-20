@@ -5,7 +5,8 @@ func _ready():
 
 
 func _on_Play_pressed():
-	ButtonPress.press($Choose, $Main)
+	AudioManager.play("SFX/select.wav", "SFX", true)
+	Global.switch_scene("Levels/TestLevel.tscn")
 
 
 func _on_Settings_pressed():
@@ -17,8 +18,7 @@ func _on_BackChoose_pressed():
 	ButtonPress.press($Main, $Choose)
 
 func _on_Story_pressed():
-	AudioManager.play("SFX/select.wav", "SFX", true)
-	Global.switch_scene("Levels/TestLevel.tscn")
+	pass
 
 
 func _on_Endless_pressed():

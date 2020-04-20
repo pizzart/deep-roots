@@ -17,9 +17,6 @@ _global_script_class_icons={
 
 config/name="LD46"
 run/main_scene="res://Scenes/Levels/Main Menu.tscn"
-boot_splash/image="res://GFX/Static/PibbAutoSanDee.png"
-boot_splash/use_filter=false
-boot_splash/bg_color=Color( 0.109804, 0.129412, 0.2, 1 )
 
 [autoload]
 
@@ -88,5 +85,4 @@ accept={
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0.529412, 1, 1 )
 environment/default_environment="res://default_env.tres"

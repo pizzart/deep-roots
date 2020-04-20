@@ -4,9 +4,9 @@ var story = [
 ["Pr", "lalala, what a normal day"],
 ["Pr", "How weird, an actual plant in this empty le- land"],
 ["Pr", "Oh my god, an earthquake!"],
-["Pr", "I've fallen and I can't get up!", "Pt", "Um, You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
+["Pr", "I've fallen and I can't get up!", "Pt", "Um, You're up", "Pr", "I just don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
 ["Pr", "gam", "Pt", "ing"]]
-var progress = 1;
+var progress = 0;
 var i = 0;
 signal dialogue
 signal customDialogue
@@ -15,7 +15,13 @@ var earthquake = false
 var after_earthquake = false;
 var falling = false
 var fail = false
+var endgame = false
 
+
+var vol = Settings.sfx_volume
+func _ready():
+	Settings.sfx_volume = -50
+	$sfx.start()
 
 func _physics_process(delta):
 	if falling:
@@ -34,7 +40,17 @@ func _physics_process(delta):
 	if fail and Input.is_action_pressed("accept"):
 		Global.switch_scene("Levels/Main Menu.tscn")
 		
+	if get_node("GUI").won == true:
+		if $Player.position.y < -600:
+			customDialogue("Congratulations! You escaped the cave")
+			$Player.canMove = false;
+			endgame = true
+			
+			
+	if Input.is_action_pressed("accept") and endgame:
+		Global.switch_scene("Levels/Main Menu.tscn")
 
+	
 
 func dialogue():
 	$Player.motion.x = 0
@@ -119,14 +135,33 @@ func _on_Plant_fail():
 	fail = true
 	$Player.canMove = false
 
-
+var vinepos = -16
 func _on_GUI_win():
 	$Enemy.queue_free()
 	$Enemy2.queue_free()
-	$Plant.health_drain = 0
+	$Plant.life_drain = 0
 	$Plant/Timer.stop()
-	var particles = preload("res://Particles/DashParticles.tscn").instance();
-	get_parent().add_child(particles);
-	particles.position = position;
-	particles.emitting = true;
+	var vine = preload("res://Scenes/Instances/vines.tscn").instance();
+	get_parent().add_child(vine);
+	vine.position.y = vinepos;
+	vine.position.x = 0;
+	vinepos-=16;
+	vine.playing = true
+	$WinTimer.start()
 	
+
+func _on_WinTimer_timeout():
+	var vine = preload("res://Scenes/Instances/vines.tscn").instance();
+	get_parent().add_child(vine);
+	vine.position.y = vinepos;
+	vine.position.x = 0;
+	vine.playing = true
+	vinepos-=16;
+
+
+func _on_DashArea_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_sfx_timeout():
+	Settings.sfx_volume = vol

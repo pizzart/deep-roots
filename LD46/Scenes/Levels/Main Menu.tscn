@@ -28,29 +28,29 @@ __meta__ = {
 
 [node name="Name" type="Label" parent="Main"]
 margin_top = 14.0
-margin_right = 207.0
+margin_right = 250.0
 margin_bottom = 48.0
 theme = ExtResource( 2 )
-text = "gamename"
+text = "Deep Roots"
 align = 1
 
 [node name="Play" type="Button" parent="Main"]
 margin_top = 53.0
-margin_right = 207.0
+margin_right = 250.0
 margin_bottom = 87.0
 theme = ExtResource( 2 )
 text = "Play"
 
 [node name="Settings" type="Button" parent="Main"]
 margin_top = 92.0
-margin_right = 207.0
+margin_right = 250.0
 margin_bottom = 126.0
 theme = ExtResource( 2 )
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Main"]
 margin_top = 131.0
-margin_right = 207.0
+margin_right = 250.0
 margin_bottom = 165.0
 theme = ExtResource( 2 )
 text = "Quit"
@@ -71,7 +71,6 @@ __meta__ = {
 margin_right = 206.0
 margin_bottom = 34.0
 theme = ExtResource( 2 )
-text = "first"
 align = 1
 
 [node name="Story" type="Button" parent="Choose"]
@@ -81,25 +80,17 @@ margin_bottom = 72.0
 theme = ExtResource( 2 )
 text = "Story"
 
-[node name="Label2" type="Label" parent="Choose"]
+[node name="Endless" type="Button" parent="Choose"]
 margin_top = 76.0
 margin_right = 206.0
 margin_bottom = 110.0
 theme = ExtResource( 2 )
-text = "second"
-align = 1
-
-[node name="Endless" type="Button" parent="Choose"]
-margin_top = 114.0
-margin_right = 206.0
-margin_bottom = 148.0
-theme = ExtResource( 2 )
 text = "Endless"
 
 [node name="BackChoose" type="Button" parent="Choose"]
-margin_top = 152.0
+margin_top = 114.0
 margin_right = 206.0
-margin_bottom = 186.0
+margin_bottom = 148.0
 theme = ExtResource( 2 )
 text = "Back"
 

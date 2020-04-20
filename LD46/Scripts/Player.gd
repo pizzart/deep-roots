@@ -13,11 +13,12 @@ var canMove = true
 var canJump = true
 var canDash = true
 var isDashing = false
-var invincible = false;
+var invincible = false
+var dashAbility = false
 
 var health = 2
 var max_health = 2;
-var minerals = 0
+var minerals = 2600
 var endless_opened = false
 var high_score = 0
 
@@ -30,6 +31,12 @@ func _physics_process(delta):
 		run(delta)
 		jump()
 		dash()
+	
+	if get_node("../GUI").won == true:
+		if Input.is_action_pressed("jump") and abs(position.x) < 8:
+			motion.y = -40
+			
+	
 	move_and_slide(motion, UP)
 	animate()
 	damage()
@@ -38,7 +45,7 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		die()
-
+		
 
 func fall(delta):
 	if position.y > WORLD_LIMIT:
@@ -86,7 +93,7 @@ func jump():
 
 
 func dash():
-	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
+	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash and dashAbility:
 		AudioManager.play("SFX/dash.wav", "SFX", true)
 		isDashing = true
 		$CollisionShape2D.scale.y = 0.8
@@ -110,16 +117,16 @@ func dash():
 			motion.x = 270
 
 
-func save():
-	var save_dict = {
-		"filename" : get_filename(),
-		"parent": get_parent().get_path(),
-		"pos.x": position.x,
-		"pos.y": position.y,
-		"endless_enabled": endless_opened,
-		"high_score": high_score
-		}
-	return save_dict
+#func save():
+#	var save_dict = {
+#		"filename" : get_filename(),
+#		"parent": get_parent().get_path(),
+#		"pos.x": position.x,
+#		"pos.y": position.y,
+#		"endless_enabled": endless_opened,
+#		"high_score": high_score
+#		}
+#	return save_dict
 
 
 func _on_DashCoolDown_timeout():
