@@ -7,7 +7,7 @@ var story = [
 var progress = 0;
 var i = 0;
 signal dialogue
-
+signal customDialogue
 
 func dialogue():
 	var pos = story[progress][i]
@@ -18,7 +18,12 @@ func dialogue():
 		pos = $Plant.position
 	get_tree().paused = true
 	emit_signal("dialogue", story[progress][i], pos, d)
-
+	
+func customDialogue(text):
+	var pos = story[progress][i]
+	pos = $Player.position
+	emit_signal("customDialogue", pos, text)
+	
 
 func _on_Dialogue_done():
 	i += 2
@@ -28,8 +33,9 @@ func _on_Dialogue_done():
 		i = 0
 		progress +=1;
 		$Player.canMove = true;
-
-
+		
+func _on_Dialogue_simple_done():
+	$Player.canMove = true;
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
@@ -42,8 +48,16 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D2_body_entered(body):
 	if body.name == "Player":
-		$Triggers/Area2D2/CollisionShape2D.disabled = true;
 		dialogue()
-	
-	
-	
+		$Triggers/Overworld.queue_free()
+		
+
+func _on_GoBack_body_entered(body):
+	if body.name == "Player":
+		customDialogue("Bo back. The game is to the left")
+
+
+
+
+
+
