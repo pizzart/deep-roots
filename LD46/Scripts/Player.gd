@@ -14,8 +14,10 @@ var canJump = true
 var canDash = true
 var isDashing = false
 
-var health = 2;
-var minerals = 0;
+var health = 2
+var minerals = 0
+var endless_opened = false
+var high_score = 0
 
 signal animate
 signal dialogue
@@ -100,6 +102,17 @@ func dash():
 		elif Input.is_action_pressed("right"):
 			motion.x = 270
 
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent": get_parent().get_path(),
+		"pos.x": position.x,
+		"pos.y": position.y,
+		"endless_enabled": endless_opened,
+		"high_score": high_score
+		}
+	return save_dict
 
 
 func _on_DashCoolDown_timeout():

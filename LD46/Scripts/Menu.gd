@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	AudioManager.play("Music/Someone Else.wav", Settings.sfx_volume, true)
+	AudioManager.play("Music/Someone Else.wav", "Music", true)
 
 
 func _on_Play_pressed():
@@ -17,12 +17,12 @@ func _on_BackChoose_pressed():
 	ButtonPress.press($Main, $Choose)
 
 func _on_Story_pressed():
-	AudioManager.play_sound("select.wav", Settings.sfx_volume)
+	AudioManager.play_sound("select.wav", "SFX", true)
 	Global.switch_scene("Levels/TestLevel.tscn")
 
 
 func _on_Endless_pressed():
-	AudioManager.play_sound("select.wav", Settings.sfx_volume)
+	AudioManager.play_sound("select.wav", "SFX", true)
 	Global.switch_scene("Levels/Overworld.tscn")
 
 

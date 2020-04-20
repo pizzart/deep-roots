@@ -14,7 +14,7 @@
 [ext_resource path="res://GFX/Static/controls.png" type="Texture" id=12]
 [ext_resource path="res://GFX/Static/Tilemaps/Dirt1.png" type="Texture" id=13]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 24, 24, 1 )
 flag_disable_z = true
@@ -22,10 +22,10 @@ gravity = Vector3( 0, 98, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 33, 7 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 46 )
 
 [node name="TestLevel" type="Node2D"]
@@ -86,7 +86,7 @@ amount = 20
 lifetime = 5.6
 one_shot = true
 explosiveness = 1.0
-process_material = SubResource( 3 )
+process_material = SubResource( 1 )
 texture = ExtResource( 13 )
 
 [node name="Minerals" type="Node2D" parent="."]
@@ -108,7 +108,7 @@ position = Vector2( -39, -1100 )
 [node name="Fall" type="Area2D" parent="Triggers"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Fall"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Overworld" type="Area2D" parent="Triggers"]
 position = Vector2( 536, -666 )
@@ -118,7 +118,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Overworld"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -131,7 +131,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/OW_Plant"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -144,7 +144,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/GoBack"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
