@@ -6,7 +6,7 @@ var story = [
 ["Pr", "Oh my god, an earthquake!"],
 ["Pr", "I've fallen and I can't get up!", "Pt", "Um, You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
 ["Pr", "gam", "Pt", "ing"]]
-var progress = 0;
+var progress = 3;
 var i = 0;
 signal dialogue
 signal customDialogue
