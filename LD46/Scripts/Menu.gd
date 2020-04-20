@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	AudioManager.play("Music/Someone Else.wav", Settings.sfx_volume, true)
+
+
 func _on_Play_pressed():
 	ButtonPress.press($Choose, $Main)
 

@@ -57,6 +57,7 @@ margin_bottom = 146.0
 text = "Exit to menu"
 
 [node name="Settings" parent="Pause Menu" instance=ExtResource( 4 )]
+visible = false
 
 [node name="Confirm" type="Container" parent="Pause Menu"]
 visible = false

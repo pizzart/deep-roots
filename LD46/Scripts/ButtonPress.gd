@@ -1,6 +1,6 @@
 extends Node
 
 func press(show, hide):
-	AudioManager.play_sound("select.wav", Settings.sfx_volume)
+	AudioManager.play("SFX/select.wav", Settings.sfx_volume, true)
 	show.show()
 	hide.hide()
