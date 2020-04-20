@@ -10,10 +10,10 @@ func play(sound,
 				menu = false,
 				pitch = 1.0,
 				random_pitch_scale = 0.0):
-	var sounds = self.get_children()
+	var sounds = get_node("/root/AudioManager").get_children()
 	for child in sounds:
 		if child == AudioStreamPlayer or child == AudioStreamPlayer2D:
-			if child.bus == "Music" and bus == "Music":
+			if child.group == "Music" and bus == "Music":
 				child.queue_free()
 	
 	var volume;
@@ -31,7 +31,8 @@ func play(sound,
 		player = AudioStreamPlayer.new()
 	else:
 		player = AudioStreamPlayer2D.new()
-		
+	
+	player.add_to_group(bus)
 	player.name = bus + "-" + str(rng.randi())
 	manager.add_child(player)
 	player.set_owner(manager)

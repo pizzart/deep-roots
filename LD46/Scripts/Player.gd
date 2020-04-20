@@ -81,6 +81,7 @@ func jump():
 
 func dash():
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
+		AudioManager.play("SFX/dash.wav", "SFX")
 		isDashing = true
 		$CollisionShape2D.scale.y = 0.8
 		if $DashCoolDown.is_stopped():
