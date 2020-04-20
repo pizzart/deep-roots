@@ -17,7 +17,6 @@ func _on_TestLevel_dialogue(ch, pos, input):
 	skip = false
 	$Label.text = "";
 	add = true
-	print_debug(ch, pos, input)
 	ongoing = true
 	character = ch;
 	if ch == "Pr":

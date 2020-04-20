@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	AudioManager.play("Music/Someone Else.wav", "Music", true)
+	AudioManager.play("Music/Ananas Stinger.wav", "Music", true)
 
 
 func _on_Play_pressed():
