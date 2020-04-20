@@ -30,7 +30,7 @@ pause_mode = 2
 z_index = 4
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 120, -170 )
+position = Vector2( 490.702, -632.527 )
 
 [node name="Plant" parent="." instance=ExtResource( 5 )]
 position = Vector2( 113, -621 )

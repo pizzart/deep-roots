@@ -4,6 +4,7 @@
 [ext_resource path="res://GFX/Static/Tilemaps/Underground2.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Static/Tilemaps/UndergroundBG.png" type="Texture" id=3]
 
+<<<<<<< HEAD
 [sub_resource type="OccluderPolygon2D" id=19]
 polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -29,6 +30,33 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
+=======
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
@@ -68,7 +96,11 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/autotile/icon_coordinate = Vector2( 0, 0 )
 0/autotile/tile_size = Vector2( 16, 16 )
 0/autotile/spacing = 0
+<<<<<<< HEAD
 0/autotile/occluder_map = [ Vector2( 2, 0 ), SubResource( 19 ), Vector2( 2, 1 ), SubResource( 20 ), Vector2( 2, 2 ), SubResource( 21 ) ]
+=======
+0/autotile/occluder_map = [ Vector2( 2, 0 ), SubResource( 1 ), Vector2( 2, 1 ), SubResource( 2 ), Vector2( 2, 2 ), SubResource( 3 ) ]
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 0/autotile/navpoly_map = [  ]
 0/autotile/priority_map = [  ]
 0/autotile/z_index_map = [  ]
@@ -76,44 +108,72 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+<<<<<<< HEAD
 0/shape = SubResource( 22 )
+=======
+0/shape = SubResource( 4 )
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 22 ),
+=======
+"shape": SubResource( 4 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 23 ),
+=======
+"shape": SubResource( 5 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 24 ),
+=======
+"shape": SubResource( 6 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 25 ),
+=======
+"shape": SubResource( 7 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 26 ),
+=======
+"shape": SubResource( 8 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
+<<<<<<< HEAD
 "shape": SubResource( 27 ),
+=======
+"shape": SubResource( 9 ),
+>>>>>>> 55caaf331c8f286abc065b06c28b1c03210c4740
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
