@@ -1,6 +1,6 @@
 extends Node2D
 
-export var value = 500;
+export var value = 250;
 var current = value
 
 func _on_Area2D_body_entered(body):

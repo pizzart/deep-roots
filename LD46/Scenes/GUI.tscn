@@ -22,18 +22,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health + WinBar" type="HBoxContainer" parent="GUI"]
+[node name=" WinBar" type="HBoxContainer" parent="GUI"]
 margin_left = 2.0
 margin_right = 316.0
 margin_bottom = 176.0
 
-[node name="Win" type="HBoxContainer" parent="GUI/Health + WinBar"]
+[node name="Win" type="HBoxContainer" parent="GUI/ WinBar"]
 margin_right = 310.0
 margin_bottom = 176.0
 rect_min_size = Vector2( 310, 0 )
 alignment = 1
 
-[node name="WinProgress" type="TextureProgress" parent="GUI/Health + WinBar/Win"]
+[node name="WinProgress" type="TextureProgress" parent="GUI/ WinBar/Win"]
 light_mask = 0
 margin_left = 124.0
 margin_right = 186.0
@@ -93,5 +93,13 @@ texture = ExtResource( 6 )
 light_mask = 0
 margin_left = 10.0
 margin_right = 20.0
+margin_bottom = 176.0
+texture = ExtResource( 6 )
+
+[node name="Health3" type="TextureRect" parent="GUI/Health"]
+visible = false
+light_mask = 0
+margin_left = 20.0
+margin_right = 30.0
 margin_bottom = 176.0
 texture = ExtResource( 6 )
