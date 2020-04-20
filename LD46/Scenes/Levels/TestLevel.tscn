@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tilesets/Death.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
@@ -12,15 +12,6 @@
 [ext_resource path="res://Scenes/Instances/Dialogue.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/Ground.tres" type="TileSet" id=11]
 [ext_resource path="res://GFX/Static/controls.png" type="Texture" id=12]
-[ext_resource path="res://GFX/Static/Tilemaps/Dirt1.png" type="Texture" id=13]
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 2
-emission_box_extents = Vector3( 24, 24, 1 )
-flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 7 )
@@ -29,6 +20,7 @@ extents = Vector2( 33, 7 )
 extents = Vector2( 10, 46 )
 
 [node name="TestLevel" type="Node2D"]
+position = Vector2( -113, -7 )
 script = ExtResource( 9 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -38,10 +30,10 @@ pause_mode = 2
 z_index = 4
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 595, -629 )
+position = Vector2( 445, -625 )
 
 [node name="Plant" parent="." instance=ExtResource( 5 )]
-position = Vector2( -5, -628 )
+position = Vector2( 113, -621 )
 z_index = -2
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
@@ -81,29 +73,19 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -2490370, 8, 0, -2490369, 6, 0, -2555904, 5, 0, -2424834, 3, 0, -2424833, 9, 0, -2490368, 3, 0, -2359298, 9, 0, -2359297, 9, 0, -2424832, 3, 0, -2293762, 0, 0, -2293761, 9, 0, -2359296, 0, 0, -2228225, 0, 0, -2293760, 0, 0, -2162689, 0, 0 )
 
-[node name="Earthquake" type="Particles2D" parent="TileMaps"]
-position = Vector2( -10, -595 )
-emitting = false
-amount = 20
-lifetime = 5.6
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource( 3 )
-texture = ExtResource( 13 )
-
 [node name="EQ_Timer" type="Timer" parent="TileMaps"]
 one_shot = true
 
 [node name="Minerals" type="Node2D" parent="."]
 
 [node name="Mineral P" parent="Minerals" instance=ExtResource( 8 )]
-position = Vector2( 248, 24 )
+position = Vector2( 360, 30 )
 
 [node name="Mineral N" parent="Minerals" instance=ExtResource( 7 )]
-position = Vector2( 120, -24 )
+position = Vector2( 232, -18 )
 
 [node name="Mineral K" parent="Minerals" instance=ExtResource( 6 )]
-position = Vector2( 53, -137 )
+position = Vector2( 153, -129 )
 
 [node name="Screen resizer" type="Node2D" parent="."]
 position = Vector2( -39, -1100 )
@@ -116,7 +98,7 @@ position = Vector2( -39, -1100 )
 shape = SubResource( 1 )
 
 [node name="Overworld" type="Area2D" parent="Triggers"]
-position = Vector2( 536, -666 )
+position = Vector2( 211, -671 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -155,7 +137,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 592, -668 )
+position = Vector2( 503, -655 )
 texture = ExtResource( 12 )
 [connection signal="customDialogue" from="." to="Dialogue" method="_on_TestLevel_customDialogue"]
 [connection signal="dialogue" from="." to="Dialogue" method="_on_TestLevel_dialogue"]

@@ -14,6 +14,7 @@ signal simple_done
 signal done
 
 func _on_TestLevel_dialogue(ch, pos, input):
+	skip = false
 	$Label.text = "";
 	add = true
 	print_debug(ch, pos, input)
@@ -30,6 +31,7 @@ func _on_TestLevel_dialogue(ch, pos, input):
 	text = input;
 	
 func _on_TestLevel_customDialogue(pos, ntext):
+	skip = false
 	$Label.text = "";
 	add = false
 	ongoing = true
@@ -51,8 +53,6 @@ func _physics_process(delta):
 			done()
 		else:
 			simple_done()
-	else:
-		skip = true
 
 
 func _on_Timer_timeout():
@@ -64,6 +64,7 @@ func _on_Timer_timeout():
 		i+=1;
 #		print_debug(text + "  " + displayText + "  " + str(i))
 	else:
+		skip = true
 		$Timer.stop();
 		i = 0;
 		displayText = "";
