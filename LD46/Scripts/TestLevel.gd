@@ -25,8 +25,9 @@ func _physics_process(delta):
 			$Plant.position.y = 0;
 			falling = false
 			$TileMaps/Overworld_destroy.queue_free()
+			$Plant/Area2D/CollisionShape2D.disabled = false;
 	if $Player.position.y > -10:
-		$Plant.position.y = 0
+		$Plant.position.y = -6
 
 
 func dialogue():

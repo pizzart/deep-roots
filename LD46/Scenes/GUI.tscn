@@ -34,6 +34,7 @@ rect_min_size = Vector2( 310, 0 )
 alignment = 1
 
 [node name="WinProgress" type="TextureProgress" parent="GUI/Health + WinBar/Win"]
+light_mask = 0
 margin_left = 124.0
 margin_right = 186.0
 margin_bottom = 176.0
@@ -70,6 +71,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="GUI/Minerals/HBoxContainer"]
+light_mask = 0
 margin_left = 295.0
 margin_right = 314.0
 margin_bottom = 16.0
@@ -82,11 +84,13 @@ margin_bottom = 176.0
 custom_constants/separation = 0
 
 [node name="Health1" type="TextureRect" parent="GUI/Health"]
+light_mask = 0
 margin_right = 10.0
 margin_bottom = 176.0
 texture = ExtResource( 6 )
 
 [node name="Health2" type="TextureRect" parent="GUI/Health"]
+light_mask = 0
 margin_left = 10.0
 margin_right = 20.0
 margin_bottom = 176.0

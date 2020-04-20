@@ -18,11 +18,12 @@ animations = [ {
 extents = Vector2( 9, 4 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+collision_mask = 2
 script = ExtResource( 5 )
 
 [node name="Enemy" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true

@@ -60,7 +60,6 @@ frames = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 5 )
-disabled = true
 
 [node name="Exclamation" type="Sprite" parent="."]
 visible = false
