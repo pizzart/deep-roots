@@ -9,6 +9,7 @@ const WORLD_LIMIT = 3000
 const UP = Vector2(0, -1)
 var motion = Vector2(0, 0)
 
+var canMove = true
 var canJump = true
 var canDash = true
 var isDashing = false
@@ -17,13 +18,14 @@ var health = 2;
 var minerals = 0;
 
 signal animate
-
+signal dialogue
 
 func _physics_process(delta):
 	fall(delta)
-	run(delta)
-	jump()
-	dash()
+	if canMove:
+		run(delta)
+		jump()
+		dash()
 	move_and_slide(motion, UP)
 	animate()
 	die()
@@ -99,9 +101,6 @@ func dash():
 			motion.x = 270
 
 
-func animate():
-	emit_signal("animate", motion, is_on_floor())
-
 
 func _on_DashCoolDown_timeout():
 	if canDash == true:
@@ -131,3 +130,13 @@ func die():
 			if(get_slide_collision(i).collider.is_in_group("Death")):
 				position.x = 0
 				position.y = -16
+
+func animate():
+	emit_signal("animate", motion, is_on_floor())
+	
+func dialogue(ch):
+	emit_signal("dialogue", "Player", "ch")
+
+func _on_TestLevel_dialogue(ch, d):
+	if ch == "Player":
+		dialogue(ch);
