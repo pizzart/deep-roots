@@ -6,7 +6,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		if body.minerals >= 1500:
+		if body.minerals >= 1000:
 			body.minerals -= 1000
 			body.max_health += 1
 			body.health += 1
@@ -16,7 +16,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_DashArea_body_entered(body):
 	if body.name == "Player":
-		if body.minerals >= 2500:
+		if body.minerals >= 2000:
 			body.minerals -= 2000
 			body.dashAbility = true
 			$Dash.texture = load("res://GFX/Static/dash_no.png")

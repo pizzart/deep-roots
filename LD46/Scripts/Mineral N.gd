@@ -4,9 +4,6 @@ export var value = 250;
 var current = value
 
 
-func _ready():
-	AudioManager.play("SFX/pickup_appear.wav")
-
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
@@ -18,4 +15,5 @@ func _on_Area2D_body_entered(body):
 	
 func _on_Timer_timeout():
 	current = value;
+	AudioManager.play("SFX/pickup_appear.wav")
 	$AnimatedSprite.visible = true;

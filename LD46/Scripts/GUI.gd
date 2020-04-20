@@ -33,9 +33,11 @@ func _physics_process(delta):
 		win()
 		won = true
 		
+	get_node("GUI/ WinBar/Win/WinProgress").value = score/(win_requirement/100)
+		
 func win():
 	emit_signal("win")
 
 
 		
-	get_node("GUI/ WinBar/Win/WinProgress").value = score/(win_requirement/100)
+	

@@ -1,6 +1,6 @@
 extends Node2D
 
-export var life_drain = 1.5;
+export var life_drain = 1;
 export var win_requirement = 1000;
 export var maxlife = 10000;
 

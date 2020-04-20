@@ -5,13 +5,13 @@
 [ext_resource path="res://GFX/Animations/Spike3.png" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0.493046, 8.66031, 8.98484, 3.08926, 15.4213, 13.4741, 15.4213, 15.0427, 0.493044, 14.9345 )
+points = PoolVector2Array( 2.11568, 8.93075, 9.57981, 4.54963, 14.0691, 13.1496, 15.4213, 15.0427, 0.493044, 14.9345 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 2.85128, 11.1851, 8.38122, 6.74561, 14.4564, 10.562, 15.6247, 15.391, 0.436794, 15.0795 )
+points = PoolVector2Array( 3.30561, 12.3158, 8.2817, 7.98874, 13.3119, 11.4504, 15.6247, 15.391, 0.436794, 15.0795 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 2.4943, 12.0678, 2.81882, 2.81882, 9.68798, 3.08926, 13.9609, 4.22511, 15.4213, 15.3131, 0.709396, 15.259 )
+points = PoolVector2Array( 2.4943, 12.0678, 4.00875, 4.49555, 9.74207, 4.49555, 13.366, 5.79366, 15.4213, 15.3131, 0.709396, 15.259 )
 
 [resource]
 0/name = "Spike1"
