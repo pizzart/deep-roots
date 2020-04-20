@@ -43,8 +43,12 @@ func _on_Dialogue_done():
 		
 
 func earthquake():
+	AudioManager.play("SFX/earthquake.wav", Settings.sfx_volume, "SFX", true)
+	$Player.canMove = false;
+	$TileMaps/Overworld_destroy.queue_free()
+	$TileMaps/Earthquake.emitting = true
+	earthquake = false
 	
-
 
 func _on_Dialogue_simple_done():
 	$Player.canMove = true;
@@ -55,8 +59,8 @@ func _on_Area2D_body_entered(body):
 		print_debug('pause')
 		dialogue()
 		$Player.canMove = true;
-		$Area2D.queue_free()
-		AudioManager.play("Music/Someone Else.wav", 0.01, true, "MUSIC")
+		$Triggers/Fall.queue_free()
+		AudioManager.play("Music/Someone Else.wav", 1, "MUSIC", true)
 
 
 func _on_Area2D2_body_entered(body):
