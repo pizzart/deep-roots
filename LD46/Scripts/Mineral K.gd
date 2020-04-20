@@ -3,6 +3,11 @@ extends Node2D
 export var value = 2000;
 var current = value;
 
+
+func _ready():
+	AudioManager.play("SFX/pickup_appear.wav")
+
+
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		body.minerals += current;
@@ -14,4 +19,3 @@ func _on_Area2D_body_entered(body):
 func _on_Timer_timeout():
 	current = value;
 	$AnimatedSprite.visible = true;
-	$AudioStreamPlayer2D.play();
