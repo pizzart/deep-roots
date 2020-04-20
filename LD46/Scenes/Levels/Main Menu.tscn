@@ -104,6 +104,7 @@ theme = ExtResource( 2 )
 text = "Back"
 
 [node name="Settings" parent="." instance=ExtResource( 3 )]
+visible = false
 [connection signal="pressed" from="Main/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Main/Quit" to="." method="_on_Quit_pressed"]

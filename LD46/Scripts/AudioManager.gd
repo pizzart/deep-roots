@@ -6,11 +6,16 @@ onready var manager = get_node("/root/AudioManager")
 
 
 func play(sound,
-				volume = Settings.sfx_volume,
 				bus = "SFX",
 				menu = false,
 				pitch = 1.0,
 				random_pitch_scale = 0.0):
+	var volume;
+	if bus == "SFX":
+		volume = Settings.sfx_volume
+	elif bus == "Music":
+		volume = Settings.mus_volume
+	
 	var soundPath = "res://Audio/" + sound
 	var stream = load(soundPath)
 	pitch = rng.randfn(pitch, random_pitch_scale)
