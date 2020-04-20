@@ -60,7 +60,7 @@ func _on_Timer_timeout():
 		ongoing = true
 		displayText = str(displayText, text[i])
 		$Label.text = displayText;
-		AudioManager.play(sound, Settings.sfx_volume, "SFX", true, 1.0, 0.01)
+		AudioManager.play(sound, "SFX", true, 1.0, 0.01)
 		i+=1;
 #		print_debug(text + "  " + displayText + "  " + str(i))
 	else:
