@@ -22,7 +22,7 @@ func _on_Story_pressed():
 
 
 func _on_Endless_pressed():
-	AudioManager.play_sound("SFX/select.wav", "SFX", true)
+	AudioManager.play("SFX/select.wav", "SFX", true)
 	Global.switch_scene("Levels/Overworld.tscn")
 
 
