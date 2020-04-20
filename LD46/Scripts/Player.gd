@@ -13,9 +13,11 @@ var canMove = true
 var canJump = true
 var canDash = true
 var isDashing = false
+var invincible = false;
 
 var health = 2
-var minerals = 0
+var max_health = 2;
+var minerals = 1500
 var endless_opened = false
 var high_score = 0
 
@@ -30,8 +32,12 @@ func _physics_process(delta):
 		dash()
 	move_and_slide(motion, UP)
 	animate()
-	die()
+	damage()
 	get_node("../GUI").minerals = minerals;
+	get_node("../GUI").health = health;
+	
+	if health <= 0:
+		die()
 
 
 func fall(delta):
@@ -137,12 +143,22 @@ func _on_ParticlesDash_timeout():
 		particles.rotation = 0;
 
 
-func die():
+func damage():
 	if get_slide_count() > 0:
 		for i in range(get_slide_count()):
 			if(get_slide_collision(i).collider.is_in_group("Death")):
-				position.x = 0
-				position.y = -16
+				if  !invincible:
+					health -=1;
+				motion.x += get_slide_collision(i).collider.position.x - position.x
+				print_debug(get_slide_collision(i).collider.position.x)
+				invincible = true
+				$InvincibilityFrames.start()
+				
+				
+func die():
+	position.x = 0
+	position.y = -16
+	health = max_health;
 
 func animate():
 	emit_signal("animate", motion, is_on_floor())
@@ -153,3 +169,7 @@ func dialogue(ch):
 func _on_TestLevel_dialogue(ch, d):
 	if ch == "Player":
 		dialogue(ch);
+
+
+func _on_InvincibilityFrames_timeout():
+	invincible = false;

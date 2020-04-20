@@ -6,7 +6,7 @@ var story = [
 ["Pr", "Oh my god, an earthquake!"],
 ["Pr", "I've fallen and I can't get up!", "Pt", "Um, You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
 ["Pr", "gam", "Pt", "ing"]]
-var progress = 0;
+var progress = 1;
 var i = 0;
 signal dialogue
 signal customDialogue
@@ -26,6 +26,7 @@ func _physics_process(delta):
 			falling = false
 			$TileMaps/Overworld_destroy.queue_free()
 			$Plant/Area2D/CollisionShape2D.disabled = false;
+			$Plant/Bar.visible = true;
 	if $Player.position.y > -10:
 		$Plant.position.y = -6
 
@@ -69,6 +70,8 @@ func earthquake():
 	$Player.canMove = false;
 	$TileMaps/EQ_Timer.start();
 	earthquake = false
+	$Plant.life = $Plant.maxlife
+	$Plant/Timer.start()
 	
 func _on_EQ_Timer_timeout():
 	after_earthquake = true
