@@ -10,6 +10,12 @@ func play(sound,
 				menu = false,
 				pitch = 1.0,
 				random_pitch_scale = 0.0):
+	var sounds = self.get_children()
+	for child in sounds:
+		if child == AudioStreamPlayer or child == AudioStreamPlayer2D:
+			if child.bus == "Music" and bus == "Music":
+				child.queue_free()
+	
 	var volume;
 	if bus == "SFX":
 		volume = Settings.sfx_volume
@@ -25,8 +31,6 @@ func play(sound,
 		player = AudioStreamPlayer.new()
 	else:
 		player = AudioStreamPlayer2D.new()
-		# player.position.x = OS.window_size.x/2
-		# player.position.y = OS.window_size.y/2
 		
 	player.name = bus + "-" + str(rng.randi())
 	manager.add_child(player)
@@ -34,7 +38,7 @@ func play(sound,
 	player.set_stream(stream)
 	player.set_bus(bus)
 	player.set_volume_db(volume)
-	player.set_pitch_scale(pitch)
+	player.pitch_scale = pitch
 	player.play()
 	
 	var length = stream.get_length()
@@ -43,12 +47,11 @@ func play(sound,
 	timer.set_wait_time(length)
 	timer.set_one_shot(true)
 	timer.name = "Timer-" + player.name
-	manager.add_child(timer)
-	timer.set_owner(manager)
+	player.add_child(timer)
+	timer.set_owner(player)
 	timer.start()
 	yield(timer, "timeout")
 	
-	timer.queue_free()
 	player.queue_free()
 
 
