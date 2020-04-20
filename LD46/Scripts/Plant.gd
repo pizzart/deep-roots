@@ -2,12 +2,13 @@ extends Node2D
 
 export var life_drain = 1.5;
 export var win_requirement = 1000;
-export var maxlife = 10000;
+export var maxlife = 100;
 
 var life = maxlife;
 var win = 0;
 var damage = false;
 
+signal fail
 
 func _physics_process(delta):
 	if life > 0:
@@ -16,9 +17,17 @@ func _physics_process(delta):
 		life -= life_drain * 2;
 	if life < 0:
 		life = 0;
+		fail()
 		
+	
+	
 	animate();
 #	print_debug(life)
+
+
+func fail():
+	life_drain = 0
+	emit_signal("fail")
 
 
 func _on_Area2D_body_entered(body):

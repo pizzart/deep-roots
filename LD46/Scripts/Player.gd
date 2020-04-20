@@ -17,7 +17,7 @@ var invincible = false;
 
 var health = 2
 var max_health = 2;
-var minerals = 1500
+var minerals = 0
 var endless_opened = false
 var high_score = 0
 
@@ -87,7 +87,7 @@ func jump():
 
 func dash():
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("left") or Input.is_action_pressed("right")) and canDash:
-		AudioManager.play("SFX/dash.wav", "SFX")
+		AudioManager.play("SFX/dash.wav", "SFX", true)
 		isDashing = true
 		$CollisionShape2D.scale.y = 0.8
 		if $DashCoolDown.is_stopped():
@@ -150,8 +150,6 @@ func damage():
 			if(get_slide_collision(i).collider.is_in_group("Death")):
 				if  !invincible:
 					health -=1;
-				motion.x += get_slide_collision(i).collider.position.x - position.x
-				print_debug(get_slide_collision(i).collider.position.x)
 				invincible = true
 				$InvincibilityFrames.start()
 				
@@ -174,3 +172,4 @@ func _on_TestLevel_dialogue(ch, d):
 
 func _on_InvincibilityFrames_timeout():
 	invincible = false;
+

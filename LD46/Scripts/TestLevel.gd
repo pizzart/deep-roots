@@ -14,6 +14,7 @@ signal customDialogue
 var earthquake = false
 var after_earthquake = false;
 var falling = false
+var fail = false
 
 
 func _physics_process(delta):
@@ -29,6 +30,10 @@ func _physics_process(delta):
 			$Plant/Bar.visible = true;
 	if $Player.position.y > -10:
 		$Plant.position.y = -6
+		
+	if fail and Input.is_action_pressed("accept"):
+		Global.switch_scene("Levels/Main Menu.tscn")
+		
 
 
 func dialogue():
@@ -109,6 +114,19 @@ func _on_OW_Plant_body_entered(body):
 		earthquake = true
 
 
+func _on_Plant_fail():
+	customDialogue("You lost, press 'accept' to go to main menu")
+	fail = true
+	$Player.canMove = false
 
 
-
+func _on_GUI_win():
+	$Enemy.queue_free()
+	$Enemy2.queue_free()
+	$Plant.health_drain = 0
+	$Plant/Timer.stop()
+	var particles = preload("res://Particles/DashParticles.tscn").instance();
+	get_parent().add_child(particles);
+	particles.position = position;
+	particles.emitting = true;
+	

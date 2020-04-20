@@ -59,6 +59,7 @@ __meta__ = {
 }
 
 [node name="MineralsNum" type="Label" parent="GUI/Minerals/HBoxContainer"]
+light_mask = 0
 margin_left = 283.0
 margin_top = 4.0
 margin_right = 291.0

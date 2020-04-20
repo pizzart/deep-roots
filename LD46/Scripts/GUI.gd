@@ -7,6 +7,10 @@ var health = 2;
 var no_health = load("res://GFX/Static/health_no.png")
 var yes_health = load("res://GFX/Static/health_yes.png")
 
+var win_requirement = 20000;
+
+signal win
+
 func _physics_process(delta):
 	$GUI/Minerals/HBoxContainer/MineralsNum.text = str(minerals/100)
 	if minerals > old_minerals:
@@ -24,5 +28,12 @@ func _physics_process(delta):
 		$GUI/Health/Health3.visible = true
 		$GUI/Health/Health2.texture = yes_health
 		
+	if score >= win_requirement:
+		win()
 		
-	get_node("GUI/ WinBar/Win/WinProgress").value = score/200
+func win():
+	emit_signal("win")
+
+
+		
+	get_node("GUI/ WinBar/Win/WinProgress").value = score/(win_requirement/100)
