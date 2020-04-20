@@ -14,6 +14,7 @@ signal simple_done
 signal done
 
 func _on_TestLevel_dialogue(ch, pos, input):
+	$Label.text = "";
 	add = true
 	print_debug(ch, pos, input)
 	ongoing = true
@@ -27,6 +28,18 @@ func _on_TestLevel_dialogue(ch, pos, input):
 	position = pos;
 	$Timer.start();
 	text = input;
+	
+func _on_TestLevel_customDialogue(pos, ntext):
+	$Label.text = "";
+	add = false
+	ongoing = true
+	character = "Pr"
+	$Label.set("custom_colors/font_color", Color(255/255, 255/255, 102/255))
+	sound = "SFX/voice1.wav"
+	position = pos;
+	$Timer.start();
+	text = ntext
+	
 
 
 func _physics_process(delta):
@@ -64,13 +77,4 @@ func simple_done():
 	emit_signal("simple_done")
 	ongoing = false
 
-func _on_TestLevel_customDialogue(pos, ntext):
-	add = false
-	ongoing = true
-	character = "Pr"
-	$Label.set("custom_colors/font_color", Color(1, 1, 1))
-	sound = "SFX/voice1.wav"
-	position = pos;
-	$Timer.start();
-	text = ntext
-	
+
