@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/voice1.wav-bb85c6c4826f0b98bf5f19c31cab3be4.sample"
+path="res://.import/voice1.wav-20f4add062f4b1e9fe34c73b1b6a3856.sample"
 
 [deps]
 
-source_file="res://Audio/voice1.wav"
-dest_files=[ "res://.import/voice1.wav-bb85c6c4826f0b98bf5f19c31cab3be4.sample" ]
+source_file="res://Audio/SFX/voice1.wav"
+dest_files=[ "res://.import/voice1.wav-20f4add062f4b1e9fe34c73b1b6a3856.sample" ]
 
 [params]
 

@@ -8,6 +8,7 @@ var ongoing = false;
 var text = ""
 var displayText = "";
 var character = "";
+var sound = "SFX/voice1.wav";
 
 var random = rng.randi_range(0.5, 1.5)
 
@@ -18,10 +19,11 @@ func _on_TestLevel_dialogue(ch, pos, input):
 	ongoing = true
 	character = ch;
 	if ch == "Pr":
-		$Label.set("custom_colors/font_color", Color(153, 255, 102))
-		#$AudioStreamPlayer2D.stream = "res://Audio/voice1.wav"
+		$Label.set("custom_colors/font_color", Color(1, 1, 1))
+		sound = "SFX/voice1.wav"
 	elif ch == "Pt":
-		$Label.set("custom_colors/font_color",Color(1,0,1))
+		$Label.set("custom_colors/font_color", Color(153/255, 255/255, 102/255))
+		sound = "SFX/voice2.wav"
 	position = pos;
 	$Timer.start();
 	text = input;
@@ -42,9 +44,10 @@ func _on_Timer_timeout():
 		ongoing = true
 		displayText = str(displayText, text[i])
 		$Label.text = displayText;
+		AudioManager.play(sound, 3, true, "SFX")
 		rng.randomize();
-		$AudioStreamPlayer2D.pitch_scale = random
-		$AudioStreamPlayer2D.play();
+#		$AudioStreamPlayer2D.pitch_scale = random
+#		$AudioStreamPlayer2D.play();
 		i+=1;
 #		print_debug(text + "  " + displayText + "  " + str(i))
 	else:
