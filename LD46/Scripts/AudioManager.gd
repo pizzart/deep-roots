@@ -25,11 +25,7 @@ func play(sound,
 	var stream = load(soundPath)
 	pitch = rng.randfn(pitch, random_pitch_scale)
 	
-	var player;
-	if menu:
-		player = AudioStreamPlayer.new()
-	else:
-		player = AudioStreamPlayer2D.new()
+	var player = AudioStreamPlayer.new()
 	
 	player.name = bus + "-" + str(rng.randi())
 	manager.add_child(player)
