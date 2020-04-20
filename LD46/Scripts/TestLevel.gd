@@ -25,6 +25,8 @@ func _physics_process(delta):
 			$Plant.position.y = 0;
 			falling = false
 			$TileMaps/Overworld_destroy.queue_free()
+	if $Player.position.y > -10:
+		$Plant.position.y = 0
 
 
 func dialogue():
