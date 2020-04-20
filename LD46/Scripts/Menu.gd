@@ -17,12 +17,12 @@ func _on_BackChoose_pressed():
 	ButtonPress.press($Main, $Choose)
 
 func _on_Story_pressed():
-	AudioManager.play_sound("select.wav", "SFX", true)
+	AudioManager.play("SFX/select.wav", "SFX", true)
 	Global.switch_scene("Levels/TestLevel.tscn")
 
 
 func _on_Endless_pressed():
-	AudioManager.play_sound("select.wav", "SFX", true)
+	AudioManager.play_sound("SFX/select.wav", "SFX", true)
 	Global.switch_scene("Levels/Overworld.tscn")
 
 

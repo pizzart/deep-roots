@@ -3,6 +3,7 @@ extends Node2D
 var story = [
 ["Pr", "lalala, what a normal day"],
 ["Pr", "How weird, an actual plant in this empty le- land"],
+["Pr", "Oh my god, an earthquake!"],
 ["Pr", "I've fallen and I can't get up!", "Pt", "You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
 ["Pr", "gam", "Pt", "ing"]]
 var progress = 0;
@@ -11,6 +12,7 @@ signal dialogue
 signal customDialogue
 
 var earthquake = false
+var after_earthquake = false;
 
 func dialogue():
 	$Player.motion.x = 0
@@ -40,19 +42,26 @@ func _on_Dialogue_done():
 		
 	if (earthquake):
 		earthquake()
+	
+	if(after_earthquake):
+		$TileMaps/Earthquake.emitting = true
+		$TileMaps/Overworld_destroy.queue_free()
+		after_earthquake = false;
 		
 
 func earthquake():
 	AudioManager.play("SFX/earthquake.wav", "SFX", true)
 	$Player.canMove = false;
-	$TileMaps/Overworld_destroy.queue_free()
-	$TileMaps/Earthquake.emitting = true
+	$TileMaps/EQ_Timer.start();
 	earthquake = false
 	
+func _on_EQ_Timer_timeout():
+	after_earthquake = true
+	dialogue()
+
 
 func _on_Dialogue_simple_done():
 	$Player.canMove = true;
-
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
@@ -80,5 +89,8 @@ func _on_OW_Plant_body_entered(body):
 		dialogue()
 		$Triggers/OW_Plant.queue_free()
 		earthquake = true
+
+
+
 
 
