@@ -4,7 +4,7 @@ var story = [
 ["Pr", "lalala, what a normal day"],
 ["Pr", "How weird, an actual plant in this empty le- land"],
 ["Pr", "Oh my god, an earthquake!"],
-["Pr", "I've fallen and I can't get up!", "Pt", "You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
+["Pr", "I've fallen and I can't get up!", "Pt", "Um, You're up", "Pr", "I don't have a lying animation", "Pr", "Anyway, who are you?", "Pt", "I'm a- I'm a talking plant", "Pr", "cool", "Pt", "Ok so you have to help me get out of here", "Pt", "Bring me the minerals, see, here's Nitrogen", "Pt", "And be quick! You have to KEEP ME ALIVE "], 
 ["Pr", "gam", "Pt", "ing"]]
 var progress = 0;
 var i = 0;
@@ -13,6 +13,19 @@ signal customDialogue
 
 var earthquake = false
 var after_earthquake = false;
+var falling = false
+
+
+func _physics_process(delta):
+	if falling:
+		$TileMaps/Overworld_destroy.position.y += 1
+		$TileMaps/Overworld_destroy.position.y += $Player.motion.y * delta
+		$Plant.position.y += $Player.motion.y * delta
+		if $Plant.position.y > 0:
+			$Plant.position.y = 0;
+			falling = false
+			$TileMaps/Overworld_destroy.queue_free()
+
 
 func dialogue():
 	$Player.motion.x = 0
@@ -24,16 +37,17 @@ func dialogue():
 		pos = $Plant.position
 	get_tree().paused = true
 	emit_signal("dialogue", story[progress][i], pos, d)
-	
+
+
 func customDialogue(text):
 	var pos = story[progress][i]
 	pos = $Player.position
 	emit_signal("customDialogue", pos, text)
-	
+
 
 func _on_Dialogue_done():
 	i += 2
-	if (story[0].size() > i):
+	if (story[progress].size() > i):
 		dialogue()
 	else:
 		i = 0
@@ -44,10 +58,8 @@ func _on_Dialogue_done():
 		earthquake()
 	
 	if(after_earthquake):
-		$TileMaps/Earthquake.emitting = true
-		$TileMaps/Overworld_destroy.queue_free()
 		after_earthquake = false;
-		
+		falling = true
 
 func earthquake():
 	AudioManager.play("SFX/earthquake.wav", "SFX", true)
