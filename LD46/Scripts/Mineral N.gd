@@ -1,6 +1,17 @@
 extends Node2D
 
-export var value = 100;
+export var value = 500;
+var current = value
 
 func _on_Area2D_body_entered(body):
-	body.minerals += value;
+	if body.name == "Player":
+		body.minerals += current;
+		
+		current = 0;
+		$Timer.start();
+		$AnimatedSprite.visible = false;
+	
+func _on_Timer_timeout():
+	current = value;
+	$AnimatedSprite.visible = true;
+	$AudioStreamPlayer2D.play();
