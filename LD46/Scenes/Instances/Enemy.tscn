@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GFX/Animations/enemy1/P0002.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Animations/enemy1/P0005.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Animations/enemy1/P0003.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Animations/enemy1/P0004.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 4 )
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 5 )
+
+[node name="Enemy" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
