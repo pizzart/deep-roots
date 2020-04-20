@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=18 format=2]
+=======
 [gd_scene load_steps=15 format=2]
+>>>>>>> 4c4b6d5a90c655fc69b36f58392f8f9f5cb75e0c
 
 [ext_resource path="res://Tilesets/Death.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
@@ -12,11 +16,24 @@
 [ext_resource path="res://Scenes/Instances/Dialogue.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/Ground.tres" type="TileSet" id=11]
 [ext_resource path="res://GFX/Static/controls.png" type="Texture" id=12]
+<<<<<<< HEAD
+[ext_resource path="res://GFX/Static/Tilemaps/Dirt1.png" type="Texture" id=13]
+[ext_resource path="res://GFX/Static/bg.png" type="Texture" id=14]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33, 7 )
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 24, 24, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+=======
+>>>>>>> 4c4b6d5a90c655fc69b36f58392f8f9f5cb75e0c
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 33, 7 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 46 )
 
 [node name="TestLevel" type="Node2D"]
@@ -24,6 +41,17 @@ position = Vector2( -113, -7 )
 script = ExtResource( 9 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 3, 1 )
+transform = Transform2D( 3, 0, 0, 1, 0, 0 )
+follow_viewport_enable = true
+follow_viewport_scale = 0.3
+scroll_base_scale = Vector2( 1, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 212.979, -708.229 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( -494.275, 0, 1716.65, 181.5 )
 
 [node name="Dialogue" parent="." instance=ExtResource( 10 )]
 pause_mode = 2
@@ -74,6 +102,19 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -2490370, 8, 0, -2490369, 6, 0, -2555904, 5, 0, -2424834, 3, 0, -2424833, 9, 0, -2490368, 3, 0, -2359298, 9, 0, -2359297, 9, 0, -2424832, 3, 0, -2293762, 0, 0, -2293761, 9, 0, -2359296, 0, 0, -2228225, 0, 0, -2293760, 0, 0, -2162689, 0, 0 )
 
+<<<<<<< HEAD
+[node name="Earthquake" type="Particles2D" parent="TileMaps"]
+position = Vector2( -10, -595 )
+emitting = false
+amount = 20
+lifetime = 5.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 1 )
+texture = ExtResource( 13 )
+
+=======
+>>>>>>> 4c4b6d5a90c655fc69b36f58392f8f9f5cb75e0c
 [node name="EQ_Timer" type="Timer" parent="TileMaps"]
 one_shot = true
 
@@ -96,7 +137,7 @@ position = Vector2( -39, -1100 )
 [node name="Fall" type="Area2D" parent="Triggers"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Fall"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Overworld" type="Area2D" parent="Triggers"]
 position = Vector2( 211, -671 )
@@ -106,7 +147,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Overworld"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -119,7 +160,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/OW_Plant"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -132,7 +173,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/GoBack"]
 position = Vector2( -1, 1 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
