@@ -1,4 +1,4 @@
-extends Container
+extends Control
 
 var sfx_volume = -20
 var mus_volume = -20
@@ -19,3 +19,7 @@ func _on_Music_Volume_value_changed(value):
 
 func _on_Back_pressed():
 	ButtonPress.press(back_to, get_node("."))
+
+
+func _on_Fullscreen_pressed():
+	OS.window_fullscreen = !OS.window_fullscreen

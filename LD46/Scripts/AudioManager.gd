@@ -3,18 +3,20 @@ extends Node
 var rng = RandomNumberGenerator.new()
 var root = null
 
-func _ready():
-	root = get_tree().get_root()
 
-func _process(_delta):
-	rng.randomize()
-
-func play_sound(sound, volume, bus = "SFX"):
+func play(sound, volume, menu = false, bus = "SFX"):
 	var soundPath = "res://Audio/" + sound
 	var stream = load(soundPath)
-	var player = AudioStreamPlayer.new()
 	
-	player.name = "Sound-" + str(rng.randi())
+	var player;
+	if menu:
+		player = AudioStreamPlayer.new()
+	else:
+		player = AudioStreamPlayer2D.new()
+		player.position.x = OS.window_size.x/2
+		player.position.y = OS.window_size.y/2
+		
+	player.name = bus + "-" + str(rng.randi())
 	root.add_child(player)
 	player.set_owner(root)
 	player.stream = stream
@@ -34,3 +36,11 @@ func play_sound(sound, volume, bus = "SFX"):
 	
 	timer.queue_free()
 	player.queue_free()
+
+
+func _ready():
+	root = get_tree().get_root()
+
+
+func _process(_delta):
+	rng.randomize()

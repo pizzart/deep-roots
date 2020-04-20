@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Audio/pickup_appear.wav" type="AudioStream" id=1]
+[ext_resource path="res://Audio/SFX/pickup_appear.wav" type="AudioStream" id=1]
 [ext_resource path="res://GFX/Animations/Collectibles/P/P0000.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Animations/Collectibles/P/P0001.png" type="Texture" id=3]
 [ext_resource path="res://GFX/Animations/Collectibles/P/P0002.png" type="Texture" id=4]
@@ -22,6 +22,7 @@ script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
