@@ -19,4 +19,3 @@ func _on_Area2D_body_entered(body):
 func _on_Timer_timeout():
 	current = value;
 	$AnimatedSprite.visible = true;
-	$AudioStreamPlayer2D.play();

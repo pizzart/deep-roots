@@ -17,8 +17,8 @@ var invincible = false
 var dashAbility = false
 
 var health = 2
-var max_health = 2;
-var minerals = 2600
+var max_health = 2
+var minerals = 0
 var endless_opened = false
 var high_score = 0
 

@@ -112,6 +112,9 @@ one_shot = true
 [node name="Mineral P" parent="Minerals" instance=ExtResource( 8 )]
 position = Vector2( -136, -120 )
 
+[node name="Mineral P7" parent="Minerals" instance=ExtResource( 8 )]
+position = Vector2( 32, -167 )
+
 [node name="Mineral P3" parent="Minerals" instance=ExtResource( 8 )]
 position = Vector2( -296, -57 )
 
@@ -268,7 +271,7 @@ margin_bottom = 1.0
 rect_scale = Vector2( 0.44603, 0.471082 )
 custom_fonts/font = ExtResource( 16 )
 text = "extra life
-15 minerals"
+10 minerals"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,7 +299,7 @@ margin_bottom = 1.0
 rect_scale = Vector2( 0.44603, 0.471082 )
 custom_fonts/font = ExtResource( 16 )
 text = "dash ability
-25 minerals"
+20 minerals"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
