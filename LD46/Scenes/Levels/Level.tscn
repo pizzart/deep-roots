@@ -35,7 +35,7 @@ position = Vector2( 490.702, -632.527 )
 [node name="Plant" parent="." instance=ExtResource( 5 )]
 position = Vector2( 113, -621 )
 z_index = -2
-frame = 1
+frame = 0
 
 [node name="GUI" parent="." instance=ExtResource( 4 )]
 

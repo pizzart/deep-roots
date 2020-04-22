@@ -104,6 +104,7 @@ func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		dialogue()
 		$Player.canMove = true
+		$Player/Light2D.show()
 		$Triggers/Fall.queue_free()
 		AudioManager.play("Music/Someone Else.wav", "Music", true)
 
