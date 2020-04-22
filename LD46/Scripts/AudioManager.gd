@@ -39,7 +39,6 @@ func play(sound,
 	player.name = bus + "-" + str(rng.randi())
 	manager.add_child(player)
 	player.add_to_group(bus)
-	player.set_owner(manager)
 	player.set_stream(stream)
 	player.set_bus(bus)
 	player.set_volume_db(volume)
@@ -53,7 +52,6 @@ func play(sound,
 	timer.set_one_shot(true)
 	timer.name = "Timer-" + player.name
 	player.add_child(timer)
-	timer.set_owner(player)
 	timer.start()
 	yield(timer, "timeout")
 	

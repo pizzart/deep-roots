@@ -41,8 +41,7 @@ func _physics_process(delta):
 			customDialogue("Congratulations! You escaped the cave")
 			$Player.canMove = false;
 			endgame = true
-			
-			
+	
 	if Input.is_action_pressed("accept") and endgame:
 		Global.switch_scene("Levels/Main Menu.tscn")
 
@@ -79,25 +78,26 @@ func _on_Dialogue_done():
 		earthquake()
 	
 	if after_earthquake:
-		after_earthquake = false;
+		after_earthquake = false
 		falling = true
+		$Player.canMove = false
 
 func earthquake():
 	AudioManager.play("SFX/earthquake.wav", "SFX", true)
-	$Player.motion.x = 0
 	$Player.canMove = false
 	$TileMaps/EQ_Timer.start()
-	earthquake = false
 	$Plant.life = $Plant.maxlife
 	$Plant/Timer.start()
-	
+	earthquake = false
+
+
 func _on_EQ_Timer_timeout():
 	after_earthquake = true
 	dialogue()
 
 
 func _on_Dialogue_simple_done():
-	$Player.canMove = true;
+	$Player.canMove = true
 
 
 func _on_Area2D_body_entered(body):
@@ -131,7 +131,7 @@ func _on_Plant_fail():
 	customDialogue("You lost, press Space or Enter to go to the main menu.")
 	fail = true
 	$Player.canMove = false
-	$Player.motion = Vector2.ZERO
+	$Player.motion.x = 0
 
 
 func _on_GUI_win():
