@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tilesets/Death.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Instances/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=19]
 [ext_resource path="res://GFX/Static/dash_yes.png" type="Texture" id=20]
 [ext_resource path="res://GFX/Static/bg.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Instances/Pause Menu.tscn" type="PackedScene" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 7 )
@@ -55,7 +56,6 @@ one_shot = true
 [node name="Plant" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -630 )
 z_index = -2
-frame = 0
 
 [node name="Enemy" parent="." instance=ExtResource( 14 )]
 position = Vector2( 409, 78 )
@@ -327,7 +327,7 @@ __meta__ = {
 [node name="WinTimer" type="Timer" parent="."]
 wait_time = 0.33
 
-[node name="sfx" type="Timer" parent="."]
+[node name="Pause Menu" parent="." instance=ExtResource( 22 )]
 [connection signal="customDialogue" from="." to="Dialogue" method="_on_TestLevel_customDialogue"]
 [connection signal="dialogue" from="." to="Dialogue" method="_on_TestLevel_dialogue"]
 [connection signal="done" from="Dialogue" to="." method="_on_Dialogue_done"]
@@ -343,4 +343,3 @@ wait_time = 0.33
 [connection signal="body_entered" from="Shop/Extra_health/Area2D" to="Shop" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Shop/Dash/DashArea" to="Shop" method="_on_DashArea_body_entered"]
 [connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]
-[connection signal="timeout" from="sfx" to="." method="_on_sfx_timeout"]

@@ -1,13 +1,22 @@
 extends Node
 
+var root
 var rng = RandomNumberGenerator.new()
-var root = null
 onready var manager = get_node("/root/AudioManager")
+
+
+func _ready():
+	root = get_tree().get_root()
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
+
+func _process(_delta):
+	rng.randomize()
 
 
 func play(sound,
 				bus = "SFX",
-				menu = false,
+				_menu = false,
 				pitch = 1.0,
 				random_pitch_scale = 0.0):
 	var sounds = get_node("/root/AudioManager").get_children()
@@ -49,12 +58,3 @@ func play(sound,
 	yield(timer, "timeout")
 	
 	player.queue_free()
-
-
-func _ready():
-	root = get_tree().get_root()
-	pause_mode = Node.PAUSE_MODE_PROCESS
-
-
-func _process(_delta):
-	rng.randomize()
