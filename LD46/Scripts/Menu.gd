@@ -6,7 +6,7 @@ func _ready():
 
 func _on_Play_pressed():
 	AudioManager.play("SFX/select.wav", "SFX", true)
-	Global.switch_scene("Levels/TestLevel.tscn")
+	Global.switch_scene("Levels/Level.tscn")
 
 
 func _on_Settings_pressed():
